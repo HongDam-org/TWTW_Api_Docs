@@ -445,16 +445,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_plan">Plan</a>
-<ul class="sectlevel2">
-<li><a href="#_검색어와_카테고리를_통한_장소_검색">검색어와 카테고리를 통한 장소 검색</a>
-<ul class="sectlevel3">
-<li><a href="#_검색어와_카테고리를_통한_장소_검색_http_request">HTTP request</a></li>
-<li><a href="#_검색어와_카테고리를_통한_장소_검색_http_response">HTTP response</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="#_auth">Auth</a>
 <ul class="sectlevel2">
 <li><a href="#_리프레시_토큰_갱신">리프레시 토큰 갱신</a>
@@ -479,10 +469,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_path">Path</a>
 <ul class="sectlevel2">
-<li><a href="#_경로_검색">경로 검색</a>
+<li><a href="#_차_경로_검색">차 경로 검색</a>
 <ul class="sectlevel3">
-<li><a href="#_경로_검색_http_request">HTTP request</a></li>
-<li><a href="#_경로_검색_http_response">HTTP response</a></li>
+<li><a href="#_차_경로_검색_http_request">HTTP request</a></li>
+<li><a href="#_차_경로_검색_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_보행자_경로_검색">보행자 경로 검색</a>
+<ul class="sectlevel3">
+<li><a href="#_보행자_경로_검색_http_request">HTTP request</a></li>
+<li><a href="#_보행자_경로_검색_http_response">HTTP response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_plan">Plan</a>
+<ul class="sectlevel2">
+<li><a href="#_검색어와_카테고리를_통한_장소_검색">검색어와 카테고리를 통한 장소 검색</a>
+<ul class="sectlevel3">
+<li><a href="#_검색어와_카테고리를_통한_장소_검색_http_request">HTTP request</a></li>
+<li><a href="#_검색어와_카테고리를_통한_장소_검색_http_response">HTTP response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_place">Place</a>
+<ul class="sectlevel2">
+<li><a href="#_주변_장소_검색">주변 장소 검색</a>
+<ul class="sectlevel3">
+<li><a href="#_주변_장소_검색_http_request">HTTP request</a></li>
+<li><a href="#_주변_장소_검색_http_response">HTTP response</a></li>
 </ul>
 </li>
 </ul>
@@ -491,60 +507,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_plan"><a class="link" href="#_plan">Plan</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_검색어와_카테고리를_통한_장소_검색"><a class="link" href="#_검색어와_카테고리를_통한_장소_검색">검색어와 카테고리를 통한 장소 검색</a></h3>
-<div class="sect3">
-<h4 id="_검색어와_카테고리를_통한_장소_검색_http_request"><a class="link" href="#_검색어와_카테고리를_통한_장소_검색_http_request">HTTP request</a></h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/search/destination?query=%EC%9D%B4%EB%94%94%EC%95%BC%20%EC%95%88%EC%84%B1&amp;x=127.426&amp;y=37.0764&amp;page=1&amp;categoryGroupCode=CE7 HTTP/1.1
-Content-Type: application/json;charset=UTF-8
-Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Host: localhost:8080</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_검색어와_카테고리를_통한_장소_검색_http_response"><a class="link" href="#_검색어와_카테고리를_통한_장소_검색_http_response">HTTP response</a></h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 900
-
-{
-  "results" : [ {
-    "placeName" : "이디야커피 안성죽산점",
-    "distance" : "435",
-    "placeUrl" : "http://place.map.kakao.com/1562566188",
-    "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
-    "addressName" : "경기 안성시 죽산면 죽산리 118-3",
-    "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
-    "categoryGroupCode" : "CE7",
-    "x" : "127.426865189637",
-    "y" : "37.0764635355795"
-  }, {
-    "placeName" : "카페 온마이마인드",
-    "distance" : "345",
-    "placeUrl" : "https://place.map.kakao.com/1625295668",
-    "categoryName" : "음식점 &gt; 카페",
-    "addressName" : "경기 안성시 죽산면 죽산리 414",
-    "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
-    "categoryGroupCode" : "CE7",
-    "x" : "127.420430538256",
-    "y" : "37.0766874564297"
-  } ],
-  "isLast" : false
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_auth"><a class="link" href="#_auth">Auth</a></h2>
 <div class="sectionbody">
@@ -662,12 +624,12 @@ Content-Length: 84
 <h2 id="_path"><a class="link" href="#_path">Path</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_경로_검색"><a class="link" href="#_경로_검색">경로 검색</a></h3>
+<h3 id="_차_경로_검색"><a class="link" href="#_차_경로_검색">차 경로 검색</a></h3>
 <div class="sect3">
-<h4 id="_경로_검색_http_request"><a class="link" href="#_경로_검색_http_request">HTTP request</a></h4>
+<h4 id="_차_경로_검색_http_request"><a class="link" href="#_차_경로_검색_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /paths/search HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /paths/search/car HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 104
 Host: localhost:8080
@@ -684,7 +646,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="_경로_검색_http_response"><a class="link" href="#_경로_검색_http_response">HTTP response</a></h4>
+<h4 id="_차_경로_검색_http_response"><a class="link" href="#_차_경로_검색_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -716,12 +678,151 @@ Content-Length: 393
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_보행자_경로_검색"><a class="link" href="#_보행자_경로_검색">보행자 경로 검색</a></h3>
+<div class="sect3">
+<h4 id="_보행자_경로_검색_http_request"><a class="link" href="#_보행자_경로_검색_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /paths/search/car HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 104
+Host: localhost:8080
+
+{
+  "start" : "",
+  "end" : "",
+  "way" : "",
+  "option" : "TRAFAST",
+  "fuel" : "DIESEL",
+  "car" : 0
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_보행자_경로_검색_http_response"><a class="link" href="#_보행자_경로_검색_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plan"><a class="link" href="#_plan">Plan</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_검색어와_카테고리를_통한_장소_검색"><a class="link" href="#_검색어와_카테고리를_통한_장소_검색">검색어와 카테고리를 통한 장소 검색</a></h3>
+<div class="sect3">
+<h4 id="_검색어와_카테고리를_통한_장소_검색_http_request"><a class="link" href="#_검색어와_카테고리를_통한_장소_검색_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/search/destination?query=%EC%9D%B4%EB%94%94%EC%95%BC%20%EC%95%88%EC%84%B1&amp;x=127.426&amp;y=37.0764&amp;page=1&amp;categoryGroupCode=CE7 HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_검색어와_카테고리를_통한_장소_검색_http_response"><a class="link" href="#_검색어와_카테고리를_통한_장소_검색_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 900
+
+{
+  "results" : [ {
+    "placeName" : "이디야커피 안성죽산점",
+    "distance" : "435",
+    "placeUrl" : "http://place.map.kakao.com/1562566188",
+    "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
+    "addressName" : "경기 안성시 죽산면 죽산리 118-3",
+    "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
+    "categoryGroupCode" : "CE7",
+    "x" : "127.426865189637",
+    "y" : "37.0764635355795"
+  }, {
+    "placeName" : "카페 온마이마인드",
+    "distance" : "345",
+    "placeUrl" : "https://place.map.kakao.com/1625295668",
+    "categoryName" : "음식점 &gt; 카페",
+    "addressName" : "경기 안성시 죽산면 죽산리 414",
+    "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
+    "categoryGroupCode" : "CE7",
+    "x" : "127.420430538256",
+    "y" : "37.0766874564297"
+  } ],
+  "isLast" : false
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_place"><a class="link" href="#_place">Place</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_주변_장소_검색"><a class="link" href="#_주변_장소_검색">주변 장소 검색</a></h3>
+<div class="sect3">
+<h4 id="_주변_장소_검색_http_request"><a class="link" href="#_주변_장소_검색_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /places/surround?query=%EC%9D%B4%EB%94%94%EC%95%BC%20%EC%95%88%EC%84%B1&amp;x=127.426&amp;y=37.0764&amp;page=1&amp;categoryGroupCode=CE7 HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_주변_장소_검색_http_response"><a class="link" href="#_주변_장소_검색_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 900
+
+{
+  "results" : [ {
+    "placeName" : "이디야커피 안성죽산점",
+    "distance" : "435",
+    "placeUrl" : "http://place.map.kakao.com/1562566188",
+    "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
+    "addressName" : "경기 안성시 죽산면 죽산리 118-3",
+    "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
+    "categoryGroupCode" : "CE7",
+    "x" : "127.426865189637",
+    "y" : "37.0764635355795"
+  }, {
+    "placeName" : "카페 온마이마인드",
+    "distance" : "345",
+    "placeUrl" : "https://place.map.kakao.com/1625295668",
+    "categoryName" : "음식점 &gt; 카페",
+    "addressName" : "경기 안성시 죽산면 죽산리 414",
+    "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
+    "categoryGroupCode" : "CE7",
+    "x" : "127.420430538256",
+    "y" : "37.0766874564297"
+  } ],
+  "isLast" : false
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-21 10:36:52 +0900
+Last updated 2023-09-25 01:12:00 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
