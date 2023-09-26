@@ -574,11 +574,14 @@ Host: localhost:8080
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 84
+Content-Length: 128
 
 {
-  "accessToken" : "access.token.value",
-  "refreshToken" : "refresh.token.value"
+  "status" : "SI",
+  "tokenDto" : {
+    "accessToken" : "access.token.value",
+    "refreshToken" : "refresh.token.value"
+  }
 }</code></pre>
 </div>
 </div>
@@ -608,11 +611,14 @@ Host: localhost:8080
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 84
+Content-Length: 128
 
 {
-  "accessToken" : "access.token.value",
-  "refreshToken" : "refresh.token.value"
+  "status" : "SI",
+  "tokenDto" : {
+    "accessToken" : "access.token.value",
+    "refreshToken" : "refresh.token.value"
+  }
 }</code></pre>
 </div>
 </div>
@@ -822,7 +828,7 @@ Content-Length: 900
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-25 01:12:00 +0900
+Last updated 2023-09-25 09:46:31 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
