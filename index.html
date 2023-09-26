@@ -447,6 +447,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_auth">Auth</a>
 <ul class="sectlevel2">
+<li><a href="#_토큰_유효성_검사">토큰 유효성 검사</a>
+<ul class="sectlevel3">
+<li><a href="#_토큰_유효성_검사_http_request">HTTP request</a></li>
+<li><a href="#_토큰_유효성_검사_http_response">HTTP response</a></li>
+</ul>
+</li>
 <li><a href="#_리프레시_토큰_갱신">리프레시 토큰 갱신</a>
 <ul class="sectlevel3">
 <li><a href="#_리프레시_토큰_갱신_http_request">HTTP request</a></li>
@@ -510,6 +516,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_auth"><a class="link" href="#_auth">Auth</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_토큰_유효성_검사"><a class="link" href="#_토큰_유효성_검사">토큰 유효성 검사</a></h3>
+<div class="sect3">
+<h4 id="_토큰_유효성_검사_http_request"><a class="link" href="#_토큰_유효성_검사_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /auth/validate HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_토큰_유효성_검사_http_response"><a class="link" href="#_토큰_유효성_검사_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_리프레시_토큰_갱신"><a class="link" href="#_리프레시_토큰_갱신">리프레시 토큰 갱신</a></h3>
 <div class="sect3">
