@@ -519,6 +519,40 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
+<li><a href="#_friend">Friend</a>
+<ul class="sectlevel2">
+<li><a href="#_친구_신청">친구 신청</a>
+<ul class="sectlevel3">
+<li><a href="#_친구_신청_http_request">HTTP request</a></li>
+<li><a href="#_친구_신청_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_친구_승락거절차단">친구 승락/거절/차단</a>
+<ul class="sectlevel3">
+<li><a href="#_친구_승락거절차단_http_request">HTTP request</a></li>
+<li><a href="#_친구_승락거절차단_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_친구_검색">친구 검색</a>
+<ul class="sectlevel3">
+<li><a href="#_친구_검색_http_request">HTTP request</a></li>
+<li><a href="#_친구_검색_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_친구_전체_조회">친구 전체 조회</a>
+<ul class="sectlevel3">
+<li><a href="#_친구_전체_조회_http_request">HTTP request</a></li>
+<li><a href="#_친구_전체_조회_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_친구_상태별_조회">친구 상태별 조회</a>
+<ul class="sectlevel3">
+<li><a href="#_친구_상태별_조회_http_request">HTTP request</a></li>
+<li><a href="#_친구_상태별_조회_http_response">HTTP response</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -888,10 +922,166 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_friend"><a class="link" href="#_friend">Friend</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_친구_신청"><a class="link" href="#_친구_신청">친구 신청</a></h3>
+<div class="sect3">
+<h4 id="_친구_신청_http_request"><a class="link" href="#_친구_신청_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /friends/request HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 57
+Host: localhost:8080
+
+{
+  "memberId" : "0f86c185-4274-4e0e-b5bf-db41a825ec63"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_친구_신청_http_response"><a class="link" href="#_친구_신청_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_친구_승락거절차단"><a class="link" href="#_친구_승락거절차단">친구 승락/거절/차단</a></h3>
+<div class="sect3">
+<h4 id="_친구_승락거절차단_http_request"><a class="link" href="#_친구_승락거절차단_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /friends/request HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 88
+Host: localhost:8080
+
+{
+  "memberId" : "4fd92a9a-c436-4699-803d-e43711836520",
+  "friendStatus" : "ACCEPTED"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_친구_승락거절차단_http_response"><a class="link" href="#_친구_승락거절차단_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_친구_검색"><a class="link" href="#_친구_검색">친구 검색</a></h3>
+<div class="sect3">
+<h4 id="_친구_검색_http_request"><a class="link" href="#_친구_검색_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /friends/search?nickname=hojin HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_친구_검색_http_response"><a class="link" href="#_친구_검색_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 176
+
+[ {
+  "memberId" : "c4ec96c8-cd5f-4c4f-87a9-28d083fa5742",
+  "nickname" : "호진정"
+}, {
+  "memberId" : "5d2fe8d8-34ca-4257-98c4-c02fa54701dc",
+  "nickname" : "진정해"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_친구_전체_조회"><a class="link" href="#_친구_전체_조회">친구 전체 조회</a></h3>
+<div class="sect3">
+<h4 id="_친구_전체_조회_http_request"><a class="link" href="#_친구_전체_조회_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /friends/all HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_친구_전체_조회_http_response"><a class="link" href="#_친구_전체_조회_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 176
+
+[ {
+  "memberId" : "e45448e1-a8e9-492b-a626-753ed717fcf8",
+  "nickname" : "정해진"
+}, {
+  "memberId" : "2f0fc8ce-51ad-4766-8c28-c581c9dcdab9",
+  "nickname" : "주어진"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_친구_상태별_조회"><a class="link" href="#_친구_상태별_조회">친구 상태별 조회</a></h3>
+<div class="sect3">
+<h4 id="_친구_상태별_조회_http_request"><a class="link" href="#_친구_상태별_조회_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /friends?friendStatus=REQUESTED HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_친구_상태별_조회_http_response"><a class="link" href="#_친구_상태별_조회_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 170
+
+[ {
+  "memberId" : "d44e1c7c-b46b-458c-8d35-3007f02aa5cd",
+  "nickname" : "호전"
+}, {
+  "memberId" : "76eaec03-128e-4759-9372-59a5008c9872",
+  "nickname" : "후진"
+} ]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-10-06 10:12:31 +0900
+Last updated 2023-10-09 11:37:58 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
