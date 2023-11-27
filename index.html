@@ -435,118 +435,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
-<style>
-/*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
-.tabs {
-    margin-bottom: 1.25em;
-}
-
-.tablist > ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.tablist > ul li {
-    align-items: center;
-    background-color: #fff;
-    cursor: pointer;
-    display: flex;
-    font-weight: bold;
-    line-height: 1.5;
-    padding: 0.25em 1em;
-    position: relative;
-}
-
-.tablist > ul li:focus-visible {
-    outline: none;
-}
-
-.tablist.ulist,
-.tablist.ulist > ul li {
-    margin: 0;
-}
-
-.tablist.ulist > ul li + li {
-    margin-left: 0.25em;
-}
-
-.tabs .tablist li::after {
-    content: "";
-    display: block;
-    height: 1px;
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-}
-
-.tabs.is-loading .tablist li:not(:first-child),
-.tabs:not(.is-loading) .tablist li:not(.is-selected) {
-    background-color: #f5f5f5;
-}
-
-.tabs.is-loading .tablist li:first-child::after,
-.tabs:not(.is-loading) .tablist li.is-selected::after {
-    background-color: #fff;
-}
-
-/*
-.tabs:not(.is-loading) .tablist li,
-.tabs:not(.is-loading) .tablist li::after {
-  transition: background-color 200ms ease-in-out;
-}
-*/
-
-.tablist > ul p {
-    line-height: inherit;
-    margin: 0;
-}
-
-.tabpanel {
-    background-color: #fff;
-    padding: 1.25em;
-}
-
-.tablist > ul li,
-.tabpanel {
-    border: 1px solid #dcdcdc;
-}
-
-.tablist > ul li {
-    border-bottom: 0;
-}
-
-.tabs.is-loading .tabpanel + .tabpanel,
-.tabs:not(.is-loading) .tabpanel.is-hidden {
-    display: none;
-}
-
-.tabpanel > :first-child {
-    margin-top: 0;
-}
-
-/* #content is a signature of the Asciidoctor standalone HTML output */
-#content .tabpanel > :last-child,
-#content .tabpanel > :last-child > :last-child,
-#content .tabpanel > :last-child > :last-child > li:last-child > :last-child {
-    margin-bottom: 0;
-}
-
-.tablecontainer {
-    overflow-x: auto;
-}
-
-#content .tablecontainer {
-    margin-bottom: 1.25em;
-}
-
-#content .tablecontainer > table.tableblock {
-    margin-bottom: 0;
-}
-</style>
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -657,6 +545,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_닉네임_중복_검색_http_request">HTTP request</a></li>
 <li><a href="#_닉네임_중복_검색_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_닉네임으로_멤버_검색">닉네임으로 멤버 검색</a>
+<ul class="sectlevel3">
+<li><a href="#_닉네임으로_멤버_검색_http_request">HTTP request</a></li>
+<li><a href="#_닉네임으로_멤버_검색_http_response">HTTP response</a></li>
 </ul>
 </li>
 </ul>
@@ -893,8 +787,8 @@ Content-Length: 144
 Host: localhost:8080
 
 {
-  "start" : "126.827507,37.636040",
-  "end" : "126.832659,37.644998",
+  "start" : "37.636040,126.827507",
+  "end" : "37.644998,126.832659",
   "way" : "",
   "option" : "TRAFAST",
   "fuel" : "DIESEL",
@@ -948,8 +842,8 @@ Content-Length: 144
 Host: localhost:8080
 
 {
-  "start" : "126.827507,37.636040",
-  "end" : "126.832659,37.644998",
+  "start" : "37.636040,126.827507",
+  "end" : "37.644998,126.832659",
   "way" : "",
   "option" : "TRAFAST",
   "fuel" : "DIESEL",
@@ -991,29 +885,29 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 900
+Content-Length: 888
 
 {
   "results" : [ {
     "placeName" : "이디야커피 안성죽산점",
-    "distance" : "435",
+    "distance" : 435,
     "placeUrl" : "http://place.map.kakao.com/1562566188",
     "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
     "addressName" : "경기 안성시 죽산면 죽산리 118-3",
     "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
     "categoryGroupCode" : "CE7",
-    "x" : "127.426865189637",
-    "y" : "37.0764635355795"
+    "x" : 127.426865189637,
+    "y" : 37.0764635355795
   }, {
     "placeName" : "카페 온마이마인드",
-    "distance" : "345",
+    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
     "categoryName" : "음식점 &gt; 카페",
     "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
     "categoryGroupCode" : "CE7",
-    "x" : "127.420430538256",
-    "y" : "37.0766874564297"
+    "x" : 127.420430538256,
+    "y" : 37.0766874564297
   } ],
   "isLast" : false
 }</code></pre>
@@ -1030,21 +924,21 @@ Content-Length: 900
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 486
+Content-Length: 480
 Host: localhost:8080
 
 {
-  "groupId" : "028adf2c-837d-4d92-a280-4d6763cd646b",
+  "groupId" : "f7484a65-f057-4dd5-9476-d5714deaecae",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
-    "distance" : "345",
+    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
     "categoryName" : "음식점 &gt; 카페",
     "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
     "categoryGroupCode" : "CE7",
-    "x" : "127.420430538256",
-    "y" : "37.0766874564297"
+    "x" : 127.420430538256,
+    "y" : 37.0766874564297
   }
 }</code></pre>
 </div>
@@ -1059,8 +953,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "935141e0-af56-49ba-9e98-2db867f4f91e",
-  "groupId" : "a2d5cf9d-d044-4e37-aee1-9d91523704ae"
+  "planId" : "ce125c2b-99d7-4d5d-b08e-ea3304aca975",
+  "groupId" : "294d6487-cf15-4cbf-ae82-ce5eb723f8d5"
 }</code></pre>
 </div>
 </div>
@@ -1072,7 +966,7 @@ Content-Length: 109
 <h4 id="_계획_단건_조회_http_request"><a class="link" href="#_계획_단건_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/d4fde7c4-0d0f-476f-98cb-3697854bb86f HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/fcee534c-dc3e-4c69-85fc-e31b5046aec9 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1085,30 +979,30 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 853
+Content-Length: 847
 
 {
-  "planId" : "4b28f8d7-d4e7-40e0-b956-92b4abb76696",
-  "placeId" : "032bf4d7-a95d-4713-81e5-1daf9e4fd6e9",
+  "planId" : "e3cdd90d-866e-48c1-800a-1b4c8662bf3c",
+  "placeId" : "5f3d5066-21fb-4e72-86ef-1bc663fa1ac1",
   "placeDetail" : {
     "placeName" : "카페 온마이마인드",
-    "distance" : "345",
+    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
     "categoryName" : "음식점 &gt; 카페",
     "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
     "categoryGroupCode" : "CE7",
-    "x" : "127.420430538256",
-    "y" : "37.0766874564297"
+    "x" : 127.420430538256,
+    "y" : 37.0766874564297
   },
   "groupInfoResponse" : {
-    "groupId" : "55d0d2f7-4a11-4126-806d-cb9f8a728aab",
-    "leaderId" : "dd3ba5d8-0f05-4421-ab2a-0a5316247601",
+    "groupId" : "d02865be-7a5f-4fbb-ac67-e8e928d4854c",
+    "leaderId" : "f9ef8d61-0738-4188-b781-faaa56bc728f",
     "name" : "홍담진",
     "groupImage" : "http://someUrlToS3"
   },
   "members" : [ {
-    "id" : "6e87165c-65b9-438f-bd89-246ad2e26956",
+    "id" : "db49684a-9fc2-4d6c-b86b-55695d78f207",
     "nickname" : "진호정"
   } ]
 }</code></pre>
@@ -1122,7 +1016,7 @@ Content-Length: 853
 <h4 id="_계획_삭제_http_request"><a class="link" href="#_계획_삭제_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/5e31c4e3-78a2-44b6-b157-9350a58cd037 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/fd2d8229-5ef1-41bd-85e5-951f0aa671eb HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1147,21 +1041,21 @@ Host: localhost:8080</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans/join HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 524
+Content-Length: 518
 Host: localhost:8080
 
 {
-  "groupId" : "367566c3-5072-415e-ab03-7527435d387d",
+  "groupId" : "8039e779-c851-4efc-ab67-2f4e1ea1d216",
   "placeDetails" : {
     "placeName" : "이디야커피 안성죽산점",
-    "distance" : "435",
+    "distance" : 435,
     "placeUrl" : "http://place.map.kakao.com/1562566188",
     "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
     "addressName" : "경기 안성시 죽산면 죽산리 118-3",
     "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
     "categoryGroupCode" : "CE7",
-    "x" : "127.426865189637",
-    "y" : "37.0764635355795"
+    "x" : 127.426865189637,
+    "y" : 37.0764635355795
   }
 }</code></pre>
 </div>
@@ -1176,8 +1070,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "b8b8f97e-fea4-4fa2-91a7-3af66ba901a1",
-  "groupId" : "b93dffe5-ccf9-4f54-93e9-2e330b355e11"
+  "planId" : "b4fade40-2803-4d30-99a9-c1265695b7f2",
+  "groupId" : "24d338cc-fe59-4140-a1d5-8dcfad1f18f5"
 }</code></pre>
 </div>
 </div>
@@ -1196,7 +1090,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "d6358d3a-778c-40de-b887-4f4bd78d9361"
+  "planId" : "93555ed6-7ebb-4dfb-a6f3-960acba291c4"
 }</code></pre>
 </div>
 </div>
@@ -1234,29 +1128,29 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 900
+Content-Length: 888
 
 {
   "results" : [ {
     "placeName" : "이디야커피 안성죽산점",
-    "distance" : "435",
+    "distance" : 435,
     "placeUrl" : "http://place.map.kakao.com/1562566188",
     "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
     "addressName" : "경기 안성시 죽산면 죽산리 118-3",
     "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
     "categoryGroupCode" : "CE7",
-    "x" : "127.426865189637",
-    "y" : "37.0764635355795"
+    "x" : 127.426865189637,
+    "y" : 37.0764635355795
   }, {
     "placeName" : "카페 온마이마인드",
-    "distance" : "345",
+    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
     "categoryName" : "음식점 &gt; 카페",
     "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
     "categoryGroupCode" : "CE7",
-    "x" : "127.420430538256",
-    "y" : "37.0766874564297"
+    "x" : 127.420430538256,
+    "y" : 37.0766874564297
   } ],
   "isLast" : false
 }</code></pre>
@@ -1296,6 +1190,35 @@ Content-Length: 25
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_닉네임으로_멤버_검색"><a class="link" href="#_닉네임으로_멤버_검색">닉네임으로 멤버 검색</a></h3>
+<div class="sect3">
+<h4 id="_닉네임으로_멤버_검색_http_request"><a class="link" href="#_닉네임으로_멤버_검색_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /member/JIN_JOO_ONE HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_닉네임으로_멤버_검색_http_response"><a class="link" href="#_닉네임으로_멤버_검색_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 81
+
+{
+  "id" : "49370450-0f4a-49dc-98c3-3a4c86920b05",
+  "nickname" : "JIN_JOO_ONE"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1314,7 +1237,7 @@ Content-Length: 57
 Host: localhost:8080
 
 {
-  "memberId" : "472e4044-618c-4a20-b47c-7d14492f27f4"
+  "memberId" : "9b40a3ba-0c51-4eed-936f-f54be77282ab"
 }</code></pre>
 </div>
 </div>
@@ -1341,7 +1264,7 @@ Content-Length: 88
 Host: localhost:8080
 
 {
-  "memberId" : "ee397574-d87b-46b9-b887-ed7e4e507e50",
+  "memberId" : "c0e81f36-a799-4605-a2a7-8e3abbe94e43",
   "friendStatus" : "ACCEPTED"
 }</code></pre>
 </div>
@@ -1378,10 +1301,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "75d98048-957d-4af8-a3ce-5348263a389e",
+  "memberId" : "588ee489-0b57-4272-8c9d-9f1721f9dcd8",
   "nickname" : "호진정"
 }, {
-  "memberId" : "4fabdd73-3c0c-49d3-9636-32f1983ca4a4",
+  "memberId" : "1835a713-2bfe-41b3-8877-3c065fab8adf",
   "nickname" : "진정해"
 } ]</code></pre>
 </div>
@@ -1410,10 +1333,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "54897ec3-5e4a-494a-9426-e0ff2a2b1d57",
+  "memberId" : "80b4086b-8717-4449-a063-f3b76fc53c62",
   "nickname" : "정해진"
 }, {
-  "memberId" : "116ce138-b869-4ea0-9f0e-0edbb693fe84",
+  "memberId" : "6b4792bd-17bd-47bf-8659-fc65fb2c599a",
   "nickname" : "주어진"
 } ]</code></pre>
 </div>
@@ -1442,10 +1365,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 170
 
 [ {
-  "memberId" : "e048865c-50cc-4f5a-98df-cb75c6eed32d",
+  "memberId" : "21f1246b-3d71-4972-b930-b0c7bb18c407",
   "nickname" : "호전"
 }, {
-  "memberId" : "31e7fc46-3b64-413c-a39b-c7ef7691ef35",
+  "memberId" : "e8d2e110-82ce-4c6b-a85c-e977670ada81",
   "nickname" : "후진"
 } ]</code></pre>
 </div>
@@ -1480,7 +1403,7 @@ Content-Length: 161
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "3334ec38-e762-4e18-9b9a-1ebf8167cc8e",
+  "leaderId" : "e5c61b33-aba2-47c0-8da4-7f357ebbc486",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE"
 }</code></pre>
@@ -1497,13 +1420,12 @@ Content-Length: 161
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 107
+Content-Length: 52
 Host: localhost:8080
 
 {
   "name" : "HDJ",
-  "groupImage" : "GROUP-IMAGE",
-  "leaderId" : "550e8400-e29b-41d4-a716-446655440000"
+  "groupImage" : "GROUP-IMAGE"
 }</code></pre>
 </div>
 </div>
@@ -1518,7 +1440,7 @@ Content-Length: 161
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "6fff2709-b2ed-4ecf-af8a-4664931350d0",
+  "leaderId" : "db60fdae-e62f-4256-9d48-89a2c4fbc571",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE"
 }</code></pre>
@@ -1539,7 +1461,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "4e7ff73c-b34f-411d-ba9e-e74e73b1f830"
+  "groupId" : "07f59e22-a9a5-439a-83fe-80aeed74f355"
 }</code></pre>
 </div>
 </div>
@@ -1553,7 +1475,7 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 56
 
 {
-  "groupId" : "7b169715-9535-494b-ba83-d1bb13fbbe9c"
+  "groupId" : "a87012e7-294f-4d3e-8e77-87932022f8df"
 }</code></pre>
 </div>
 </div>
@@ -1572,8 +1494,8 @@ Content-Length: 117
 Host: localhost:8080
 
 {
-  "friendMemberId" : "f8f8c688-17ef-4eac-b976-26bbe9c26dd6",
-  "groupId" : "bbd51f5e-a337-49b5-8eab-948529191324"
+  "friendMemberId" : "53d95789-bf13-478b-af06-65a232b338dd",
+  "groupId" : "ed9a2aad-9c5b-4ab4-b429-c839a545b55b"
 }</code></pre>
 </div>
 </div>
@@ -1587,8 +1509,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 174
 
 {
-  "groupId" : "062aa0ea-a67e-4359-9b23-69fab977e96e",
-  "leaderId" : "c87e2e12-c8b7-4056-9573-684d26f76272",
+  "groupId" : "d166cc15-59ed-4aa5-b15e-9e7d146e095f",
+  "leaderId" : "bc5002bb-3d7d-4650-8c74-b79626690882",
   "name" : "홍담진",
   "groupImage" : "http://someUrlToS3"
 }</code></pre>
@@ -1602,15 +1524,15 @@ Content-Length: 174
 <h4 id="_위치_공유_여부_수정_http_request"><a class="link" href="#_위치_공유_여부_수정_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/1dfce8de-b9b8-4cd2-aaaa-9f5f6178f326 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/97d9473a-f725-4e33-889a-a1ce88b46329 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 117
 Host: localhost:8080
 
 {
-  "friendMemberId" : "fc519164-22d2-4c3b-966c-1fd726382ef3",
-  "groupId" : "8c63c787-0bfe-49e3-905e-ebccf56bc554"
+  "friendMemberId" : "d8b1bf0f-faa8-420a-ac24-76ceee693910",
+  "groupId" : "0e0a8ee5-2fa8-4c0f-bd35-d451bc4cd89e"
 }</code></pre>
 </div>
 </div>
@@ -1630,15 +1552,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_여부_조회_http_request"><a class="link" href="#_위치_공유_여부_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/76f77c06-dee5-4183-821b-91b6b0641a34 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/3c84fda4-b92c-4734-bb6a-4d8606aafcf5 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 117
 Host: localhost:8080
 
 {
-  "friendMemberId" : "bf66ab53-bfe2-4778-85b0-414bea119f15",
-  "groupId" : "a32b9350-c62b-4450-9e6f-722d88f9832d"
+  "friendMemberId" : "5fa2550a-ea38-4ede-9fe6-f469853815fa",
+  "groupId" : "b82e1b70-9504-4804-9dea-0d1c3685ff8b"
 }</code></pre>
 </div>
 </div>
@@ -1652,8 +1574,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 129
 
 {
-  "groupId" : "03920541-14d3-4a5f-8e76-a9d6ccb63ad4",
-  "memberId" : "b6dd0738-a523-440b-896f-207ff4cc200c",
+  "groupId" : "f3e28f62-f5ea-4cce-9ddb-13cd5f254c97",
+  "memberId" : "3b960de4-416f-4523-9225-0e7399629786",
   "share" : true
 }</code></pre>
 </div>
@@ -1665,7 +1587,7 @@ Content-Length: 129
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-11-15 10:56:48 +0900
+Last updated 2023-11-20 10:48:34 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
@@ -1674,135 +1596,6 @@ if (!hljs.initHighlighting.called) {
   hljs.initHighlighting.called = true
   ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
 }
-</script>
-<script>
-;(function () { /*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
-  'use strict'
-
-  var config = (document.currentScript || {}).dataset || {}
-  var forEach = Array.prototype.forEach
-
-  init(document.querySelectorAll('.tabs'))
-
-  function init (tabsBlocks) {
-    if (!tabsBlocks.length) return
-    forEach.call(tabsBlocks, function (tabs) {
-      var syncIds = tabs.classList.contains('is-sync') ? {} : undefined
-      var tablist = tabs.querySelector('.tablist ul')
-      tablist.setAttribute('role', 'tablist')
-      var start
-      forEach.call(tablist.querySelectorAll('li'), function (tab, idx) {
-        tab.tabIndex = -1
-        tab.setAttribute('role', tab.classList.add('tab') || 'tab')
-        var id, anchor, syncId
-        if (!(id = tab.id) && (anchor = tab.querySelector('a[id]'))) {
-          id = tab.id = anchor.parentNode.removeChild(anchor).id
-        }
-        var panel = id && tabs.querySelector('.tabpanel[aria-labelledby~="' + id + '"]')
-        if (!panel) return idx ? undefined : toggleSelected(tab, true) // invalid state
-        syncIds && (((syncId = tab.textContent.trim()) in syncIds) ? (syncId = undefined) : true) &&
-        (syncIds[(tab.dataset.syncId = syncId)] = tab)
-        idx || (syncIds && (start = { tab: tab, panel: panel })) ? toggleHidden(panel, true) : toggleSelected(tab, true)
-        tab.setAttribute('aria-controls', panel.id)
-        panel.setAttribute('role', 'tabpanel')
-        var onClick = syncId === undefined ? activateTab : activateTabSync
-        tab.addEventListener('click', onClick.bind({ tabs: tabs, tab: tab, panel: panel }))
-      })
-      if (!tabs.closest('.tabpanel')) {
-        forEach.call(tabs.querySelectorAll('.tabpanel table.tableblock'), function (table) {
-          var container = Object.assign(document.createElement('div'), { className: 'tablecontainer' })
-          table.parentNode.insertBefore(container, table).appendChild(table)
-        })
-      }
-      if (start) {
-        var syncGroupId
-        for (var i = 0, lst = tabs.classList, len = lst.length, className; i !== len; i++) {
-          if (!(className = lst.item(i)).startsWith('data-sync-group-id=')) continue
-          tabs.dataset.syncGroupId = syncGroupId = lst.remove(className) || className.slice(19).replace(/\u00a0/g, ' ')
-          break
-        }
-        if (syncGroupId === undefined) tabs.dataset.syncGroupId = syncGroupId = Object.keys(syncIds).sort().join('|')
-        var preferredSyncId = 'syncStorageKey' in config &&
-          window[(config.syncStorageScope || 'local') + 'Storage'].getItem(config.syncStorageKey + '-' + syncGroupId)
-        var tab = preferredSyncId && syncIds[preferredSyncId]
-        tab && Object.assign(start, { tab: tab, panel: document.getElementById(tab.getAttribute('aria-controls')) })
-        toggleSelected(start.tab, true) || toggleHidden(start.panel, false)
-      }
-    })
-    onHashChange()
-    toggleClassOnEach(tabsBlocks, 'is-loading', 'remove')
-    window.setTimeout(toggleClassOnEach.bind(null, tabsBlocks, 'is-loaded', 'add'), 0)
-    window.addEventListener('hashchange', onHashChange)
-  }
-
-  function activateTab (e) {
-    var tab = this.tab
-    var tabs = this.tabs || (this.tabs = tab.closest('.tabs'))
-    var panel = this.panel || (this.panel = document.getElementById(tab.getAttribute('aria-controls')))
-    querySelectorWithSiblings(tabs, '.tablist .tab', 'tab').forEach(function (el) {
-      toggleSelected(el, el === tab)
-    })
-    querySelectorWithSiblings(tabs, '.tabpanel', 'tabpanel').forEach(function (el) {
-      toggleHidden(el, el !== panel)
-    })
-    if (!this.isSync && 'syncStorageKey' in config && 'syncGroupId' in tabs.dataset) {
-      var storageKey = config.syncStorageKey + '-' + tabs.dataset.syncGroupId
-      window[(config.syncStorageScope || 'local') + 'Storage'].setItem(storageKey, tab.dataset.syncId)
-    }
-    if (!e) return
-    var loc = window.location
-    var hashIdx = loc.hash ? loc.href.indexOf('#') : -1
-    if (~hashIdx) window.history.replaceState(null, '', loc.href.slice(0, hashIdx))
-    e.preventDefault()
-  }
-
-  function activateTabSync (e) {
-    activateTab.call(this, e)
-    var thisTabs = this.tabs
-    var thisTab = this.tab
-    var initialY = thisTabs.getBoundingClientRect().y
-    forEach.call(document.querySelectorAll('.tabs'), function (tabs) {
-      if (tabs === thisTabs || tabs.dataset.syncGroupId !== thisTabs.dataset.syncGroupId) return
-      querySelectorWithSiblings(tabs, '.tablist .tab', 'tab').forEach(function (tab) {
-        if (tab.dataset.syncId === thisTab.dataset.syncId) activateTab.call({ tabs: tabs, tab: tab, isSync: true })
-      })
-    })
-    var shiftedBy = thisTabs.getBoundingClientRect().y - initialY
-    if (shiftedBy && (shiftedBy = Math.round(shiftedBy))) window.scrollBy({ top: shiftedBy, behavior: 'instant' })
-  }
-
-  function querySelectorWithSiblings (scope, selector, siblingClass) {
-    var el = scope.querySelector(selector)
-    if (!el) return []
-    var result = [el]
-    while ((el = el.nextElementSibling) && el.classList.contains(siblingClass)) result.push(el)
-    return result
-  }
-
-  function toggleClassOnEach (elements, className, method) {
-    forEach.call(elements, function (el) {
-      el.classList[method](className)
-    })
-  }
-
-  function toggleHidden (el, state) {
-    el.classList[(el.hidden = state) ? 'add' : 'remove']('is-hidden')
-  }
-
-  function toggleSelected (el, state) {
-    el.setAttribute('aria-selected', '' + state)
-    el.classList[state ? 'add' : 'remove']('is-selected')
-    el.tabIndex = state ? 0 : -1
-  }
-
-  function onHashChange () {
-    var id = window.location.hash.slice(1)
-    if (!id) return
-    var tab = document.getElementById(~id.indexOf('%') ? decodeURIComponent(id) : id)
-    if (!(tab && tab.classList.contains('tab'))) return
-    'syncId' in tab.dataset ? activateTabSync.call({ tab: tab }) : activateTab.call({ tab: tab })
-  }
-})()
 </script>
 </body>
 </html>
