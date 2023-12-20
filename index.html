@@ -937,7 +937,7 @@ Content-Length: 399
 <h4 id="_검색어와_카테고리를_통한_장소_검색_http_request"><a class="link" href="#_검색어와_카테고리를_통한_장소_검색_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/search/destination?query=%EC%9D%B4%EB%94%94%EC%95%BC%20%EC%95%88%EC%84%B1&amp;x=127.426&amp;y=37.0764&amp;page=1&amp;categoryGroupCode=CE7 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/search/destination?query=%EC%9D%B4%EB%94%94%EC%95%BC%20%EC%95%88%EC%84%B1&amp;longitude=127.426&amp;latitude=37.0764&amp;page=1&amp;categoryGroupCode=CE7 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -950,29 +950,21 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 888
+Content-Length: 556
 
 {
   "results" : [ {
     "placeName" : "이디야커피 안성죽산점",
-    "distance" : 435,
     "placeUrl" : "http://place.map.kakao.com/1562566188",
-    "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
-    "addressName" : "경기 안성시 죽산면 죽산리 118-3",
     "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
-    "categoryGroupCode" : "CE7",
-    "x" : 127.426865189637,
-    "y" : 37.0764635355795
+    "longitude" : 127.426865189637,
+    "latitude" : 37.0764635355795
   }, {
     "placeName" : "카페 온마이마인드",
-    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
-    "categoryName" : "음식점 &gt; 카페",
-    "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
-    "categoryGroupCode" : "CE7",
-    "x" : 127.420430538256,
-    "y" : 37.0766874564297
+    "longitude" : 127.420430538256,
+    "latitude" : 37.0766874564297
   } ],
   "isLast" : false
 }</code></pre>
@@ -989,21 +981,17 @@ Content-Length: 888
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 480
+Content-Length: 333
 Host: localhost:8080
 
 {
-  "groupId" : "b9c13ef4-482f-4be3-91f3-130df1476f6b",
+  "groupId" : "010ac3cd-cc3b-40bc-a4db-36e8cd0e183a",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
-    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
-    "categoryName" : "음식점 &gt; 카페",
-    "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
-    "categoryGroupCode" : "CE7",
-    "x" : 127.420430538256,
-    "y" : 37.0766874564297
+    "longitude" : 127.420430538256,
+    "latitude" : 37.0766874564297
   }
 }</code></pre>
 </div>
@@ -1018,8 +1006,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "7398051b-fee2-42b2-bf17-54546d08a438",
-  "groupId" : "7ee79304-f497-42d8-9259-f5dfc20c4a95"
+  "planId" : "0e0fd326-14c4-4f4d-b0ce-b40f8f03b846",
+  "groupId" : "53ccd4f0-b9c8-44fb-aa05-9e7aa10d283b"
 }</code></pre>
 </div>
 </div>
@@ -1031,7 +1019,7 @@ Content-Length: 109
 <h4 id="_계획_단건_조회_http_request"><a class="link" href="#_계획_단건_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/76212ac7-5cd8-43a2-81c1-e48b262d842a HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/f2d46f55-85cb-4aa6-8e28-9f44b72c234c HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1044,30 +1032,28 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 847
+Content-Length: 777
 
 {
-  "planId" : "2857b418-2645-4b74-85c0-15aed9884e53",
-  "placeId" : "8f3ff950-c689-4269-9d4a-269f0d0ab2d2",
-  "placeDetail" : {
+  "planId" : "5d992676-4a3f-4785-aab3-6ebfba97a07f",
+  "placeId" : "80d4c195-a537-484b-a935-63aa12e02386",
+  "planMakerId" : "dacc9381-5f11-409d-9384-e59cd8200d2e",
+  "placeDetails" : {
     "placeName" : "카페 온마이마인드",
-    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
-    "categoryName" : "음식점 &gt; 카페",
-    "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
-    "categoryGroupCode" : "CE7",
-    "x" : 127.420430538256,
-    "y" : 37.0766874564297
+    "longitude" : 127.420430538256,
+    "latitude" : 37.0766874564297
   },
-  "groupInfoResponse" : {
-    "groupId" : "957a4299-b577-4921-9644-cf829926ecd2",
-    "leaderId" : "8afb04eb-00d9-4488-a99a-0f2549530e85",
+  "groupInfo" : {
+    "groupId" : "f9e1d3b7-4e0e-4b3b-88af-70078afe2d83",
+    "leaderId" : "a810752f-d28a-4b26-80ba-b492a269d0ee",
     "name" : "홍담진",
-    "groupImage" : "http://someUrlToS3"
+    "groupImage" : "http://someUrlToS3",
+    "groupMembers" : [ ]
   },
   "members" : [ {
-    "id" : "61f01a2d-860d-4caf-b443-0e1c7c8ba3ab",
+    "id" : "85ec8be1-1bab-4a2c-9a61-795178b324ac",
     "nickname" : "진호정"
   } ]
 }</code></pre>
@@ -1081,7 +1067,7 @@ Content-Length: 847
 <h4 id="_계획_삭제_http_request"><a class="link" href="#_계획_삭제_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/4a0092dc-5f49-43db-8afb-d5715811e94f HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/3246a069-e135-4c61-822a-da2ee480c474 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1106,21 +1092,17 @@ Host: localhost:8080</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans/join HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 518
+Content-Length: 333
 Host: localhost:8080
 
 {
-  "groupId" : "41e09105-ca3f-4c8e-8ae8-203cad84441d",
+  "groupId" : "544b1de7-6ac7-47b3-8e05-58b45b579603",
   "placeDetails" : {
     "placeName" : "이디야커피 안성죽산점",
-    "distance" : 435,
     "placeUrl" : "http://place.map.kakao.com/1562566188",
-    "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
-    "addressName" : "경기 안성시 죽산면 죽산리 118-3",
     "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
-    "categoryGroupCode" : "CE7",
-    "x" : 127.426865189637,
-    "y" : 37.0764635355795
+    "longitude" : 127.426865189637,
+    "latitude" : 37.0764635355795
   }
 }</code></pre>
 </div>
@@ -1135,8 +1117,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "78557ac5-5606-45c0-a0cc-ac11585f5f5e",
-  "groupId" : "65dc3f1d-df91-48c4-b4c2-0416adce7c7c"
+  "planId" : "e471ed2c-078e-4e84-8599-0ee8073d00bb",
+  "groupId" : "d75f3a26-ac4e-4a8a-9374-b2d83b6e7077"
 }</code></pre>
 </div>
 </div>
@@ -1155,7 +1137,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "867453c2-ea46-4dc8-926d-05b2293004bc"
+  "planId" : "49ca3a83-c07b-4f17-83ae-2d6da3399523"
 }</code></pre>
 </div>
 </div>
@@ -1173,14 +1155,81 @@ Host: localhost:8080
 <h3 id="_본인이_속한_계획_전체_조회"><a class="link" href="#_본인이_속한_계획_전체_조회">본인이 속한 계획 전체 조회</a></h3>
 <div class="sect3">
 <h4 id="_본인이_속한_계획_전체_조회_http_request"><a class="link" href="#_본인이_속한_계획_전체_조회_http_request">HTTP request</a></h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::get all plans</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Host: localhost:8080</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_본인이_속한_계획_전체_조회_http_response"><a class="link" href="#_본인이_속한_계획_전체_조회_http_response">HTTP response</a></h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::get all plans</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 1932
+
+[ {
+  "planId" : "e3424254-3eb4-4cfa-90c7-5bffd5087eb2",
+  "placeId" : "d38b1235-cd10-474a-be90-be5491f48d72",
+  "planMakerId" : "8bb4db07-c0aa-4359-9384-637491a828f6",
+  "placeDetails" : {
+    "placeName" : "카페 온마이마인드",
+    "placeUrl" : "https://place.map.kakao.com/1625295668",
+    "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
+    "longitude" : 127.420430538256,
+    "latitude" : 37.0766874564297
+  },
+  "groupInfo" : {
+    "groupId" : "3355f46e-20eb-4ea0-adda-e3b27aba93d7",
+    "leaderId" : "f3d7b98a-fc0b-4d8c-bab9-d2185484511e",
+    "name" : "홍담진",
+    "groupImage" : "http://someUrlToS3",
+    "groupMembers" : [ {
+      "id" : "6d00b3c0-ce05-4d07-b4c8-872edf13d671",
+      "nickname" : "카즈하"
+    }, {
+      "id" : "d1703b1f-7b40-45cd-bd24-80deb7e5f6eb",
+      "nickname" : "사쿠라"
+    } ]
+  },
+  "members" : [ {
+    "id" : "05cfe5b0-8c04-4deb-8df5-8f8e3ef9374f",
+    "nickname" : "진호정"
+  } ]
+}, {
+  "planId" : "ecafa4bd-782f-451d-ad9f-b6c95959b5ed",
+  "placeId" : "b82476e0-c478-43db-a12c-04c7b7ae0db6",
+  "planMakerId" : "a33fa29d-f273-494e-a910-b5f328736e72",
+  "placeDetails" : {
+    "placeName" : "카페 온유어마인드",
+    "placeUrl" : "https://place.map.kakao.com/1625295669",
+    "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-5",
+    "longitude" : 127.420430538257,
+    "latitude" : 37.0766874564298
+  },
+  "groupInfo" : {
+    "groupId" : "e4e14c5f-672c-429a-b1a2-0ccc8979fc85",
+    "leaderId" : "8e267ab9-844e-4f0e-bb80-35d747fbed6a",
+    "name" : "HongDamJin",
+    "groupImage" : "http://someUrlToS3",
+    "groupMembers" : [ {
+      "id" : "baea17f0-aec9-43e2-864a-9c2c19a1ea0b",
+      "nickname" : "카즈하"
+    }, {
+      "id" : "57694d35-6386-4ea4-abb7-17bac1132495",
+      "nickname" : "사쿠라"
+    } ]
+  },
+  "members" : [ {
+    "id" : "5f0afbcc-b4a5-4012-bf7b-ceb4a91fd5ff",
+    "nickname" : "JinHoJeong"
+  } ]
+} ]</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1188,14 +1237,32 @@ Host: localhost:8080
 <h3 id="_계획_수정"><a class="link" href="#_계획_수정">계획 수정</a></h3>
 <div class="sect3">
 <h4 id="_계획_수정_http_request"><a class="link" href="#_계획_수정_http_request">HTTP request</a></h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::post update plan</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans/update HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 306
+Host: localhost:8080
+
+{
+  "planId" : "e1f6245b-176a-49ef-b8ee-f569c43a9a6b",
+  "placeName" : "별다방",
+  "placeUrl" : "http://place.map.kakao.com/1562566188",
+  "categoryGroupCode" : "CE7",
+  "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
+  "longitude" : 127.426865189637,
+  "latitude" : 37.0764635355795
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_계획_수정_http_response"><a class="link" href="#_계획_수정_http_response">HTTP response</a></h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::post update plan</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1210,7 +1277,7 @@ Host: localhost:8080
 <h4 id="_주변_장소_검색_http_request"><a class="link" href="#_주변_장소_검색_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /places/surround?x=127.426&amp;y=37.0764&amp;page=1 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /places/surround?longitude=127.426&amp;latitude=37.0764&amp;page=1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1223,27 +1290,19 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 888
+Content-Length: 526
 
 {
   "results" : [ {
     "placeName" : "이디야커피 안성죽산점",
-    "distance" : 435,
     "placeUrl" : "http://place.map.kakao.com/1562566188",
-    "categoryName" : "음식점 &gt; 카페 &gt; 커피전문점 &gt; 이디야커피",
-    "addressName" : "경기 안성시 죽산면 죽산리 118-3",
     "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
-    "categoryGroupCode" : "CE7",
     "x" : 127.426865189637,
     "y" : 37.0764635355795
   }, {
     "placeName" : "카페 온마이마인드",
-    "distance" : 345,
     "placeUrl" : "https://place.map.kakao.com/1625295668",
-    "categoryName" : "음식점 &gt; 카페",
-    "addressName" : "경기 안성시 죽산면 죽산리 414",
     "roadAddressName" : "경기 안성시 죽산면 죽산초교길 36-4",
-    "categoryGroupCode" : "CE7",
     "x" : 127.420430538256,
     "y" : 37.0766874564297
   } ],
@@ -1309,7 +1368,7 @@ Content-Length: 132
 {
   "isExist" : true,
   "memberResponse" : {
-    "id" : "c53f506f-29c9-4c42-9b53-009a37763c29",
+    "id" : "aca0dbcb-5625-4efc-81c0-537f8e646c84",
     "nickname" : "JIN_JOO_ONE"
   }
 }</code></pre>
@@ -1335,7 +1394,7 @@ Content-Length: 57
 Host: localhost:8080
 
 {
-  "memberId" : "416e25ff-a5a2-4094-88e6-56fbe536a24f"
+  "memberId" : "9b87ea13-b207-4c13-9561-ae738da4a034"
 }</code></pre>
 </div>
 </div>
@@ -1362,7 +1421,7 @@ Content-Length: 88
 Host: localhost:8080
 
 {
-  "memberId" : "9e0d94e9-eb5c-426d-bc49-0a38c96a86e1",
+  "memberId" : "c7703507-17db-4d43-aad9-f57508120739",
   "friendStatus" : "ACCEPTED"
 }</code></pre>
 </div>
@@ -1399,10 +1458,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "08616e51-2d1d-4ad9-8eb7-ae07963c28f9",
+  "memberId" : "9d50c263-c337-4171-98b8-51ec1c85a0e3",
   "nickname" : "호진정"
 }, {
-  "memberId" : "1bf31cd9-9e0b-41ca-81f3-4517c04e74f6",
+  "memberId" : "334e9b0b-4a43-4ed3-ad7b-ebc68a77d370",
   "nickname" : "진정해"
 } ]</code></pre>
 </div>
@@ -1431,10 +1490,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "5b525601-135a-473b-99c7-acdf3a1dcfa9",
+  "memberId" : "026b3fe3-4d3b-4e78-be33-98e9229b5d43",
   "nickname" : "정해진"
 }, {
-  "memberId" : "359fe985-f036-48df-8125-36cd886b1dda",
+  "memberId" : "a9a6be94-c87e-435f-9459-9f9e46899a9e",
   "nickname" : "주어진"
 } ]</code></pre>
 </div>
@@ -1463,10 +1522,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 170
 
 [ {
-  "memberId" : "30cd7da7-8c84-41ce-bdb6-3cb533172789",
+  "memberId" : "6d92d4d9-6960-4b6c-8525-c15405037482",
   "nickname" : "호전"
 }, {
-  "memberId" : "03203acd-8557-46b2-98cf-19d80f1dda0b",
+  "memberId" : "617347b1-48dc-4b74-a84f-bf32b4e5023e",
   "nickname" : "후진"
 } ]</code></pre>
 </div>
@@ -1497,13 +1556,20 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 161
+Content-Length: 350
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "af03454c-e397-46d0-8961-2e4fd06a4034",
+  "leaderId" : "8093d503-af31-49dc-a83d-9f2ef7d9c55d",
   "name" : "HDJ",
-  "groupImage" : "GROUP-IMAGE"
+  "groupImage" : "GROUP-IMAGE",
+  "groupMembers" : [ {
+    "id" : "fa64bb00-eb3f-4b8b-a729-3c385548b2e2",
+    "nickname" : "DEAN"
+  }, {
+    "id" : "e047caa7-1f3d-451e-9f6f-6ddf6a125272",
+    "nickname" : "ZION-T"
+  } ]
 }</code></pre>
 </div>
 </div>
@@ -1534,13 +1600,20 @@ Host: localhost:8080
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 161
+Content-Length: 350
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "4bb39860-13b8-4ece-87e1-f311d7446088",
+  "leaderId" : "a3ee522f-eabe-4642-96be-e786508c97a8",
   "name" : "HDJ",
-  "groupImage" : "GROUP-IMAGE"
+  "groupImage" : "GROUP-IMAGE",
+  "groupMembers" : [ {
+    "id" : "ff359048-0052-4e66-bf15-11ccad1709d8",
+    "nickname" : "DEAN"
+  }, {
+    "id" : "105d33fd-fa1c-49a6-b3d2-6950bab7e590",
+    "nickname" : "ZION-T"
+  } ]
 }</code></pre>
 </div>
 </div>
@@ -1559,7 +1632,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "186875ef-92a0-45ca-8a61-c411199f5ca1"
+  "groupId" : "9c1fed50-f634-4a65-a6ef-e7703e7fd3d4"
 }</code></pre>
 </div>
 </div>
@@ -1573,7 +1646,7 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 56
 
 {
-  "groupId" : "1804e239-2fc7-4554-91c5-273be7454a1f"
+  "groupId" : "21d0053a-d854-4e8b-b1af-c8a979d27c0a"
 }</code></pre>
 </div>
 </div>
@@ -1588,12 +1661,12 @@ Content-Length: 56
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/invite HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 117
+Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberId" : "8ecefd5a-00d1-41ad-947b-7f3f6a914b84",
-  "groupId" : "7cace6fb-fbc6-4b26-a055-53ddfc5533ee"
+  "friendMemberIds" : [ "d72255fe-46db-4ad9-8375-9375bc61820e" ],
+  "groupId" : "342c59e9-a604-478c-b042-18c423b1b05c"
 }</code></pre>
 </div>
 </div>
@@ -1604,13 +1677,20 @@ Host: localhost:8080
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 174
+Content-Length: 363
 
 {
-  "groupId" : "9d1e8092-35db-47dc-a69d-f7546cafd631",
-  "leaderId" : "d65ad803-b0d3-48ba-81d1-16a5adb8e1e9",
+  "groupId" : "e239fffc-b612-414c-b435-4341eb54f1b8",
+  "leaderId" : "898fe63d-0363-4ff6-a4a0-9c4fc8e2ac57",
   "name" : "홍담진",
-  "groupImage" : "http://someUrlToS3"
+  "groupImage" : "http://someUrlToS3",
+  "groupMembers" : [ {
+    "id" : "98702165-fb05-4376-a6ec-aa62b5596dd2",
+    "nickname" : "DEAN"
+  }, {
+    "id" : "63a0d54a-cb80-45ba-aa45-5f82a8fa3803",
+    "nickname" : "ZION-T"
+  } ]
 }</code></pre>
 </div>
 </div>
@@ -1620,14 +1700,27 @@ Content-Length: 174
 <h3 id="_위치_공유_on"><a class="link" href="#_위치_공유_on">위치 공유 ON</a></h3>
 <div class="sect3">
 <h4 id="_위치_공유_on_http_request"><a class="link" href="#_위치_공유_on_http_request">HTTP request</a></h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::post share location</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/78bd7b09-e244-4c9a-9e3f-df76daa26542 HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 122
+Host: localhost:8080
+
+{
+  "friendMemberIds" : [ "745a5aed-a1c1-4875-b1fc-738fba654326" ],
+  "groupId" : "65656ef8-08a6-43ae-a509-d089dc452227"
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_위치_공유_on_http_response"><a class="link" href="#_위치_공유_on_http_response">HTTP response</a></h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::post share location</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1635,14 +1728,27 @@ Content-Length: 174
 <h3 id="_위치_공유_off"><a class="link" href="#_위치_공유_off">위치 공유 OFF</a></h3>
 <div class="sect3">
 <h4 id="_위치_공유_off_http_request"><a class="link" href="#_위치_공유_off_http_request">HTTP request</a></h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::post unshare location</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/unshare/e53bccef-d653-4899-adaa-c47249782d4a HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 122
+Host: localhost:8080
+
+{
+  "friendMemberIds" : [ "53fecc75-9f29-455a-8ced-b6a29051e437" ],
+  "groupId" : "5ac4adc9-bfdf-4391-a2e7-24b6065f8ce2"
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_위치_공유_off_http_response"><a class="link" href="#_위치_공유_off_http_response">HTTP response</a></h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::post unshare location</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1652,15 +1758,15 @@ Content-Length: 174
 <h4 id="_위치_공유_여부_조회_http_request"><a class="link" href="#_위치_공유_여부_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/ac9eaef8-d46d-4b87-8269-b671e6eba049 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/3cf0f21f-8ad4-43f6-986b-7b6d94caf131 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 117
+Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberId" : "497fe519-0719-4c48-8059-4e51ff980e23",
-  "groupId" : "f241e518-d35f-4fcf-8d86-55a232dc91b2"
+  "friendMemberIds" : [ "ea187b75-374c-401b-806c-fd99f20bb318" ],
+  "groupId" : "553f14c9-5a77-4905-862a-fbee62081307"
 }</code></pre>
 </div>
 </div>
@@ -1674,8 +1780,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 129
 
 {
-  "groupId" : "40c1382f-3527-4fca-823e-a627de2682fc",
-  "memberId" : "18f81ecf-4e9f-42cd-81eb-ab10b78254c6",
+  "groupId" : "668bdc37-6756-4f31-bc57-31e789240b05",
+  "memberId" : "1989669f-9ba5-409b-a9d4-6c2e39518377",
   "share" : true
 }</code></pre>
 </div>
@@ -1701,18 +1807,32 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 353
+Content-Length: 739
 
 [ {
-  "groupId" : "f5958cb8-2d1f-48aa-8446-545cd4c08a34",
-  "leaderId" : "f294a86a-2e5a-4593-a778-b5aac007d963",
+  "groupId" : "75a2af59-b67b-4aa5-b772-ae5a43d0a573",
+  "leaderId" : "0ea2e1fa-e532-4dd2-b2ef-d41533918d06",
   "name" : "BLACK_PINK",
-  "groupImage" : "I_LOVE_YOU_LOSE"
+  "groupImage" : "I_LOVE_YOU_LOSE",
+  "groupMembers" : [ {
+    "id" : "4315c21a-a68d-4847-968e-159acfaea8a3",
+    "nickname" : "LISA"
+  }, {
+    "id" : "1080971f-ae95-4a02-9e9b-7c24f7435d8d",
+    "nickname" : "제니"
+  } ]
 }, {
-  "groupId" : "4bbaf3a3-3fc0-41b8-8564-ad643f69155d",
-  "leaderId" : "f294a86a-2e5a-4593-a778-b5aac007d963",
+  "groupId" : "a69bf698-949d-4ec3-9030-f7a8629eacc2",
+  "leaderId" : "0ea2e1fa-e532-4dd2-b2ef-d41533918d06",
   "name" : "LE_SSERAFIM",
-  "groupImage" : "I_LOVE_YOU_채원"
+  "groupImage" : "I_LOVE_YOU_채원",
+  "groupMembers" : [ {
+    "id" : "5b0e48ea-f322-451b-9120-8e3544f5fa11",
+    "nickname" : "카즈하"
+  }, {
+    "id" : "161b66b4-f362-4a03-b011-c5692d90015f",
+    "nickname" : "사쿠라"
+  } ]
 } ]</code></pre>
 </div>
 </div>
@@ -1722,14 +1842,28 @@ Content-Length: 353
 <h3 id="_그룹_자신_위치_수정"><a class="link" href="#_그룹_자신_위치_수정">그룹 자신 위치 수정</a></h3>
 <div class="sect3">
 <h4 id="_그룹_자신_위치_수정_http_request"><a class="link" href="#_그룹_자신_위치_수정_http_request">HTTP request</a></h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::post update group member location</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/location HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 97
+Host: localhost:8080
+
+{
+  "groupId" : "af4796f3-0ec0-4ead-a9ec-3142bd6934e9",
+  "longitude" : 0.0,
+  "latitude" : 0.0
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_그룹_자신_위치_수정_http_response"><a class="link" href="#_그룹_자신_위치_수정_http_response">HTTP response</a></h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::post update group member location</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1737,14 +1871,26 @@ Content-Length: 353
 <h3 id="_그룹_탈퇴"><a class="link" href="#_그룹_탈퇴">그룹 탈퇴</a></h3>
 <div class="sect3">
 <h4 id="_그룹_탈퇴_http_request"><a class="link" href="#_그룹_탈퇴_http_request">HTTP request</a></h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::post out group</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/out HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 56
+Host: localhost:8080
+
+{
+  "groupId" : "99438967-a952-485b-914e-7b5e4047111d"
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_그룹_탈퇴_http_response"><a class="link" href="#_그룹_탈퇴_http_response">HTTP response</a></h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::post out group</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1757,14 +1903,30 @@ Content-Length: 353
 <h3 id="_프로필_이미지_업로드"><a class="link" href="#_프로필_이미지_업로드">프로필 이미지 업로드</a></h3>
 <div class="sect3">
 <h4 id="_프로필_이미지_업로드_http_request"><a class="link" href="#_프로필_이미지_업로드_http_request">HTTP request</a></h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::post upload image</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /images HTTP/1.1
+Content-Type: multipart/form-data;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 37
+Host: localhost:8080
+
+"image를 request시 넣어주세요"</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_프로필_이미지_업로드_http_response"><a class="link" href="#_프로필_이미지_업로드_http_response">HTTP response</a></h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::post upload image</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 76
+
+{
+  "imageUrl" : "https://storage.googleapis.com/bucket-name/some-file-id"
+}</code></pre>
+</div>
 </div>
 </div>
 </div>
