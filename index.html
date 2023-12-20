@@ -539,6 +539,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_계획_수정_http_response">HTTP response</a></li>
 </ul>
 </li>
+<li><a href="#_계획_날짜_수정">계획 날짜 수정</a>
+<ul class="sectlevel3">
+<li><a href="#_계획_날짜_수정_http_request">HTTP request</a></li>
+<li><a href="#_계획_날짜_수정_http_response">HTTP response</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_place">Place</a>
@@ -985,7 +991,7 @@ Content-Length: 367
 Host: localhost:8080
 
 {
-  "groupId" : "ba7aa906-5933-41c1-a624-f531452c3312",
+  "groupId" : "395cb3b4-8322-4b1b-a0a3-2f34ad47ac70",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
@@ -1007,8 +1013,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "0ee6f2e5-8e8e-4968-aded-20dd49153bdf",
-  "groupId" : "a80e33b1-c3cc-45c3-8d8e-fb5100ff97a2"
+  "planId" : "c23ade7e-3ab5-47ec-96b7-dcc9aaa6de6e",
+  "groupId" : "eaf222d6-a804-42e8-92f5-b79d06c7d870"
 }</code></pre>
 </div>
 </div>
@@ -1020,7 +1026,7 @@ Content-Length: 109
 <h4 id="_계획_단건_조회_http_request"><a class="link" href="#_계획_단건_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/fcfa6c6a-08f3-4fee-abc2-0776f3b0699f HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/4e0da21b-5826-4203-badb-3c8b42bcb886 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1036,9 +1042,9 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 996
 
 {
-  "planId" : "f97a7f64-d9ce-49af-8f2f-a5c1b8958bb6",
-  "placeId" : "1bf17f43-45d9-412c-8ea9-2acf18d7ef85",
-  "planMakerId" : "7b2a5def-2a9c-49f8-a8d3-77fa5d392be7",
+  "planId" : "30844cab-e866-44a5-a568-58c246881a0c",
+  "placeId" : "e791fa28-f332-410b-ad02-0d05864b0da4",
+  "planMakerId" : "7afa61fe-09fa-4c38-a5bc-028bb5e52f6d",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
@@ -1048,20 +1054,20 @@ Content-Length: 996
     "latitude" : 37.0766874564297
   },
   "groupInfo" : {
-    "groupId" : "4f93ff49-e714-4af3-82a7-aac0446378b6",
-    "leaderId" : "d6fb2027-b886-4376-b3bf-235649626805",
+    "groupId" : "ad44e53e-74f1-49d3-b672-b8d8c372a6a7",
+    "leaderId" : "b940f3bc-4126-494e-b329-927d3b8edec1",
     "name" : "홍담진",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "id" : "4e1303d8-ee43-4195-afdb-a4998e2bdddb",
+      "id" : "d8baf2a2-edb0-4332-9dcf-f58903688f87",
       "nickname" : "카즈하"
     }, {
-      "id" : "6dc0bcc7-17ca-49a1-9d2e-e1f2d48458d2",
+      "id" : "25a5afbc-b357-4c8a-a108-7dd02fcc4bc8",
       "nickname" : "사쿠라"
     } ]
   },
   "members" : [ {
-    "id" : "c68de2c0-19d9-4fb8-86a1-d242cbc2c80b",
+    "id" : "d91a1371-241c-4a89-a421-b1e93a4346a6",
     "nickname" : "진호정"
   } ]
 }</code></pre>
@@ -1075,7 +1081,7 @@ Content-Length: 996
 <h4 id="_계획_삭제_http_request"><a class="link" href="#_계획_삭제_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/57cc7302-f4a5-402b-ba39-b2e3bb8284ca HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/4cfe8984-fa2f-4c4d-8382-ac7fc124d4b6 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1104,7 +1110,7 @@ Content-Length: 367
 Host: localhost:8080
 
 {
-  "groupId" : "4b998f7c-b7f4-4f1d-97ea-2ad9e5d610cd",
+  "groupId" : "b3c61256-2f86-4844-a5a7-485d53f07d63",
   "planDay" : "2023-12-25 13:30",
   "placeDetails" : {
     "placeName" : "이디야커피 안성죽산점",
@@ -1126,8 +1132,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "349f209e-9484-4334-b09d-8c7cbdb29ee5",
-  "groupId" : "daa78e34-69c6-4e34-9bd3-ef1a13ec0abc"
+  "planId" : "1459b94c-cf1b-4d85-b6ac-22b068c2451a",
+  "groupId" : "95ce4b81-71b8-421a-bbbd-5efef74eb55f"
 }</code></pre>
 </div>
 </div>
@@ -1146,7 +1152,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "3b8ba644-9f32-4fce-923c-dec8818a7c08"
+  "planId" : "61246081-3372-4dc6-ab06-1a5bb5f8bda5"
 }</code></pre>
 </div>
 </div>
@@ -1182,9 +1188,9 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 2000
 
 [ {
-  "planId" : "66884e97-d228-4f7b-8d2f-e9039774f724",
-  "placeId" : "1b7c3017-5b6d-48ba-8b3c-a2344bf8b9ff",
-  "planMakerId" : "58b2ab17-9108-4e8d-a796-f48927d47604",
+  "planId" : "f6b041e7-b120-4954-bd4d-538712f668c2",
+  "placeId" : "8b4d9260-1671-4ea4-93f2-0ac7da9f02d0",
+  "planMakerId" : "dd4267d3-d2f3-488f-97d2-fe2a3be2576c",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
@@ -1194,26 +1200,26 @@ Content-Length: 2000
     "latitude" : 37.0766874564297
   },
   "groupInfo" : {
-    "groupId" : "fd50c172-c2e0-4b66-b8c6-2ab19fea9a95",
-    "leaderId" : "bc53f153-386b-4fe0-9608-d15b543c3d99",
+    "groupId" : "4f6b9bbe-8b3d-46ad-9197-505d79b82fce",
+    "leaderId" : "c4aff428-5474-4e74-95b9-6de866276efe",
     "name" : "홍담진",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "id" : "0334131f-a1eb-4d43-9215-4db33f56f940",
+      "id" : "5c7c62bc-0f17-4416-9545-1becf971ff6a",
       "nickname" : "카즈하"
     }, {
-      "id" : "0b39fd5f-4c9e-4f2c-9bba-16b298cab2c7",
+      "id" : "b21b7424-0660-4126-8d2b-acc47d9b712a",
       "nickname" : "사쿠라"
     } ]
   },
   "members" : [ {
-    "id" : "d5e0b3ac-63f8-47dd-88b5-d542e7f2ad90",
+    "id" : "31e8b064-893c-4f76-995c-5bd8ccad2f1f",
     "nickname" : "진호정"
   } ]
 }, {
-  "planId" : "ec44d0d1-a164-4074-8804-dc4c995b1965",
-  "placeId" : "3232afad-84d3-48f6-a019-afc4e328d997",
-  "planMakerId" : "b4b9517c-df49-4c8c-b489-aeb8cc0162b7",
+  "planId" : "a184c1e8-4e4f-4244-a67d-5009c3b81be9",
+  "placeId" : "584b2c6d-3aaa-49c2-b9fe-19d19a38b386",
+  "planMakerId" : "aa27af48-2a4a-47e0-8257-b86372367d49",
   "planDay" : "2023-12-26 15:30",
   "placeDetails" : {
     "placeName" : "카페 온유어마인드",
@@ -1223,20 +1229,20 @@ Content-Length: 2000
     "latitude" : 37.0766874564298
   },
   "groupInfo" : {
-    "groupId" : "a78f458e-4ef3-4c6a-8e55-3997944bf20a",
-    "leaderId" : "c273a6d9-9d45-4d3e-aa7b-c0358275fb91",
+    "groupId" : "a21100b2-e4f6-4c02-b720-e76e704e5f7e",
+    "leaderId" : "c1d18cdf-0cdf-4aba-b0db-2cd03dda18d0",
     "name" : "HongDamJin",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "id" : "b4efde64-8ad0-478a-a0f0-04a61c95f5ed",
+      "id" : "2351d48a-0b93-4d32-9165-d03f78852ed3",
       "nickname" : "카즈하"
     }, {
-      "id" : "1e9b8557-bca9-460a-b399-3f8717ad8c47",
+      "id" : "ed487137-94ce-4e29-babb-9c117b824cf6",
       "nickname" : "사쿠라"
     } ]
   },
   "members" : [ {
-    "id" : "a37538f4-b3b2-4173-abec-3c42dc74d5a0",
+    "id" : "1502cd63-8c56-4d84-ba39-2f9655b441f4",
     "nickname" : "JinHoJeong"
   } ]
 } ]</code></pre>
@@ -1257,7 +1263,7 @@ Content-Length: 306
 Host: localhost:8080
 
 {
-  "planId" : "26967730-cb93-46f2-bf5f-76755ea6f604",
+  "planId" : "054a985c-915b-4f34-bb4f-1eb6f05d8842",
   "placeName" : "별다방",
   "placeUrl" : "http://place.map.kakao.com/1562566188",
   "categoryGroupCode" : "CE7",
@@ -1270,6 +1276,34 @@ Host: localhost:8080
 </div>
 <div class="sect3">
 <h4 id="_계획_수정_http_response"><a class="link" href="#_계획_수정_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_계획_날짜_수정"><a class="link" href="#_계획_날짜_수정">계획 날짜 수정</a></h3>
+<div class="sect3">
+<h4 id="_계획_날짜_수정_http_request"><a class="link" href="#_계획_날짜_수정_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans/day HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 91
+Host: localhost:8080
+
+{
+  "planId" : "ac74ae9a-7ce1-4a3a-96ea-26af101a7fef",
+  "changeDay" : "2023-12-25 13:30"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_계획_날짜_수정_http_response"><a class="link" href="#_계획_날짜_수정_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
@@ -1379,7 +1413,7 @@ Content-Length: 132
 {
   "isExist" : true,
   "memberResponse" : {
-    "id" : "435efacb-da1c-49eb-92b2-aeffac580395",
+    "id" : "782f9226-3671-4da6-871f-0662daa25f0c",
     "nickname" : "JIN_JOO_ONE"
   }
 }</code></pre>
@@ -1405,7 +1439,7 @@ Content-Length: 57
 Host: localhost:8080
 
 {
-  "memberId" : "4781cca3-cb9d-4848-ab6f-c7392bc4436d"
+  "memberId" : "89c07597-f378-4bb7-a6da-698ea2ef92a1"
 }</code></pre>
 </div>
 </div>
@@ -1432,7 +1466,7 @@ Content-Length: 88
 Host: localhost:8080
 
 {
-  "memberId" : "bccba44d-e5a4-4ace-9736-5306b991b1bf",
+  "memberId" : "f80925b9-5396-49d0-893a-803dca670a9f",
   "friendStatus" : "ACCEPTED"
 }</code></pre>
 </div>
@@ -1469,10 +1503,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "e63d741f-117f-4cc6-b0e2-c5827099986c",
+  "memberId" : "06785ca7-c7f5-4d5e-b7e5-8747d78e0996",
   "nickname" : "호진정"
 }, {
-  "memberId" : "e3720fc1-ef1a-4ee4-97cd-1dc25848a468",
+  "memberId" : "e56838e2-744e-43aa-b4a5-6e186950cadf",
   "nickname" : "진정해"
 } ]</code></pre>
 </div>
@@ -1501,10 +1535,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "207f6724-a613-47a6-abc3-f85b24f9636b",
+  "memberId" : "5d51376a-88b0-4a20-84f4-943a35e24815",
   "nickname" : "정해진"
 }, {
-  "memberId" : "4e8a946b-02f1-4505-a032-2dd717136718",
+  "memberId" : "6139b88d-061c-488b-9e1d-9c6183ac715e",
   "nickname" : "주어진"
 } ]</code></pre>
 </div>
@@ -1533,10 +1567,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 170
 
 [ {
-  "memberId" : "339d736d-aec3-4f06-bda1-907d920c14a3",
+  "memberId" : "cad192b3-bd6c-4b7b-929f-bcafbfa11d3e",
   "nickname" : "호전"
 }, {
-  "memberId" : "3a18399c-b59d-453b-9102-e8008d74835d",
+  "memberId" : "2d60145d-a956-47ad-8a55-61d8778992be",
   "nickname" : "후진"
 } ]</code></pre>
 </div>
@@ -1571,14 +1605,14 @@ Content-Length: 350
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "e1419fa3-3a77-4d57-952d-75a818a982e8",
+  "leaderId" : "32399079-f127-41cd-b744-ef7ac9849a78",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE",
   "groupMembers" : [ {
-    "id" : "a08d1d35-9959-49e7-afee-9f20688aa171",
+    "id" : "055c2689-7d2f-45fe-853a-db7ed43cbdc0",
     "nickname" : "DEAN"
   }, {
-    "id" : "ae490dd7-145f-4655-b1d7-91fa80837bba",
+    "id" : "fd1f941e-b0d3-4e66-8ac7-42951e7d0b1a",
     "nickname" : "ZION-T"
   } ]
 }</code></pre>
@@ -1615,14 +1649,14 @@ Content-Length: 350
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "52a69c92-da36-4168-90cc-190c6f652c22",
+  "leaderId" : "c5520d92-8f95-4f21-b691-0f06110aecb1",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE",
   "groupMembers" : [ {
-    "id" : "9b4ebba9-c7e0-462b-8813-0d89e052c245",
+    "id" : "4b517493-8330-4852-85db-9d999dd9a3f8",
     "nickname" : "DEAN"
   }, {
-    "id" : "27740535-ec7d-430f-9944-12c60eb40c73",
+    "id" : "bdad0e45-ddba-468b-b449-c6e1b67b4d2d",
     "nickname" : "ZION-T"
   } ]
 }</code></pre>
@@ -1643,7 +1677,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "ea65d875-77d9-438e-8cda-00404b0c8881"
+  "groupId" : "ef470da6-8b53-4de5-9459-8c58b691f767"
 }</code></pre>
 </div>
 </div>
@@ -1657,7 +1691,7 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 56
 
 {
-  "groupId" : "be4c6e57-bb3a-4883-b2c1-25da4ee6a26c"
+  "groupId" : "4c5a1230-fb88-40fc-ba63-8b342791c7d6"
 }</code></pre>
 </div>
 </div>
@@ -1676,8 +1710,8 @@ Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "fd8a34d0-b627-4242-8dee-81f8d9afc01d" ],
-  "groupId" : "1441f73f-8615-43a3-899f-ee6fe9d0a674"
+  "friendMemberIds" : [ "4ff99168-186b-4a9c-997f-c30ff22a9467" ],
+  "groupId" : "262eb1b1-1f45-48ef-bf3c-d98c9e170a36"
 }</code></pre>
 </div>
 </div>
@@ -1691,15 +1725,15 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 363
 
 {
-  "groupId" : "ceef1457-5852-4dd2-a5c8-26906ccaf607",
-  "leaderId" : "b5d3f51a-bec7-436f-ac6a-8a3cabf3b440",
+  "groupId" : "6ab19ece-a61e-4560-8c33-59430e60f6c0",
+  "leaderId" : "24efc4a3-a193-4fb9-8cb9-209c992f0f88",
   "name" : "홍담진",
   "groupImage" : "http://someUrlToS3",
   "groupMembers" : [ {
-    "id" : "aec63b37-aee6-4257-b7a7-c36347d3e4a7",
+    "id" : "c578fd8c-3688-4f63-b40b-24d939ba5abc",
     "nickname" : "DEAN"
   }, {
-    "id" : "0f41e953-622e-4e55-9475-33c99e8d4fc0",
+    "id" : "94ed773b-a232-4e57-954e-e5ec27cfe417",
     "nickname" : "ZION-T"
   } ]
 }</code></pre>
@@ -1713,15 +1747,15 @@ Content-Length: 363
 <h4 id="_위치_공유_on_http_request"><a class="link" href="#_위치_공유_on_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/bfa94437-66df-46a1-87db-c228fa40ff1b HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/5032077a-bf7f-4b1b-81ea-f013d4cf4c64 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "5e90563c-fe3b-43f8-a029-2ed164744be0" ],
-  "groupId" : "64ed615c-87a5-4e2b-a84e-f57ee6d14d5c"
+  "friendMemberIds" : [ "f1ee6e67-f8d0-4df7-8929-54a8ab8a11c6" ],
+  "groupId" : "7af94d74-e060-4ad6-9f4b-4321ddc68ea2"
 }</code></pre>
 </div>
 </div>
@@ -1741,15 +1775,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_off_http_request"><a class="link" href="#_위치_공유_off_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/unshare/ef591af5-67cb-4a15-adfb-aa97110068c2 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/unshare/d488bd8b-b48c-4778-a3b9-df2e2914c559 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "e6eeb2ad-d073-4ec7-bb42-2760629b8c16" ],
-  "groupId" : "c0b01653-e000-4bd3-ba5f-617210186b37"
+  "friendMemberIds" : [ "372ba212-ee4d-4902-ab68-3bbee8dbc29c" ],
+  "groupId" : "9b41d262-a038-4b78-9436-e74de023aa10"
 }</code></pre>
 </div>
 </div>
@@ -1769,15 +1803,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_여부_조회_http_request"><a class="link" href="#_위치_공유_여부_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/f03f53bd-6e71-44d9-8cbd-2a03f90e752e HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/2f3a815a-9118-439b-8bf5-5a706924d0dd HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "355f15a8-f05b-4f2a-a200-f082535c7e9f" ],
-  "groupId" : "dc099a25-8f5e-4b92-b029-3774234bebc0"
+  "friendMemberIds" : [ "274c2bd7-c84f-4922-9f21-4d60602d9205" ],
+  "groupId" : "14ae435d-9fb5-4273-8d25-07df61f0a5ea"
 }</code></pre>
 </div>
 </div>
@@ -1791,8 +1825,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 129
 
 {
-  "groupId" : "2c642f0b-25c4-4347-a2d5-47bc8b28d76d",
-  "memberId" : "f784c00a-b86a-422a-acf5-da87864776df",
+  "groupId" : "c7aefe48-c27c-4e21-b05b-393c6c67065c",
+  "memberId" : "198dd9b1-f0cf-4979-9838-be92cf3746b4",
   "share" : true
 }</code></pre>
 </div>
@@ -1821,27 +1855,27 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 739
 
 [ {
-  "groupId" : "54fa29f9-1149-4a05-baf9-98f428f3be26",
-  "leaderId" : "2c42fd0f-3f1f-4220-9a81-cca2bc5bdb56",
+  "groupId" : "6738b06d-f5ee-4b0c-9cb7-410d5aefb0cd",
+  "leaderId" : "3dc6f5dc-943b-4502-8488-f497efb553b6",
   "name" : "BLACK_PINK",
   "groupImage" : "I_LOVE_YOU_LOSE",
   "groupMembers" : [ {
-    "id" : "4c808cb4-efc2-47c4-8aa0-037f7c2a566f",
+    "id" : "eb08a425-9cfd-4d20-afe2-82f42f65944b",
     "nickname" : "LISA"
   }, {
-    "id" : "705693fe-361c-42ee-8e60-f1478ac1c07f",
+    "id" : "9bfec070-88b1-448b-b89d-3311cd656a50",
     "nickname" : "제니"
   } ]
 }, {
-  "groupId" : "94a22edd-2984-47da-ba34-0956743114a9",
-  "leaderId" : "2c42fd0f-3f1f-4220-9a81-cca2bc5bdb56",
+  "groupId" : "ca44bc45-a0a1-4816-85f2-2e1f808c2140",
+  "leaderId" : "3dc6f5dc-943b-4502-8488-f497efb553b6",
   "name" : "LE_SSERAFIM",
   "groupImage" : "I_LOVE_YOU_채원",
   "groupMembers" : [ {
-    "id" : "edc24d2e-5b67-419f-afef-472b38152725",
+    "id" : "2043dd9f-d846-49c5-ad44-72f2d43069cc",
     "nickname" : "카즈하"
   }, {
-    "id" : "a6e98490-895b-4494-9f53-d008b9cee1fd",
+    "id" : "1a6e5178-f701-4080-b669-9c5bfd8ede93",
     "nickname" : "사쿠라"
   } ]
 } ]</code></pre>
@@ -1862,7 +1896,7 @@ Content-Length: 97
 Host: localhost:8080
 
 {
-  "groupId" : "dfc0a157-c499-4e31-bebc-72b2ee27d1f3",
+  "groupId" : "ae2c48e6-c350-4825-88e0-421fdb701bc4",
   "longitude" : 0.0,
   "latitude" : 0.0
 }</code></pre>
@@ -1891,7 +1925,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "7014bd50-9d33-493b-8e9b-7f6064f476e1"
+  "groupId" : "c9745857-a307-4867-ad45-5c4d5d5c2ad5"
 }</code></pre>
 </div>
 </div>
