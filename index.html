@@ -435,6 +435,118 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
+<style>
+/*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
+.tabs {
+    margin-bottom: 1.25em;
+}
+
+.tablist > ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tablist > ul li {
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 0.25em 1em;
+    position: relative;
+}
+
+.tablist > ul li:focus-visible {
+    outline: none;
+}
+
+.tablist.ulist,
+.tablist.ulist > ul li {
+    margin: 0;
+}
+
+.tablist.ulist > ul li + li {
+    margin-left: 0.25em;
+}
+
+.tabs .tablist li::after {
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+}
+
+.tabs.is-loading .tablist li:not(:first-child),
+.tabs:not(.is-loading) .tablist li:not(.is-selected) {
+    background-color: #f5f5f5;
+}
+
+.tabs.is-loading .tablist li:first-child::after,
+.tabs:not(.is-loading) .tablist li.is-selected::after {
+    background-color: #fff;
+}
+
+/*
+.tabs:not(.is-loading) .tablist li,
+.tabs:not(.is-loading) .tablist li::after {
+  transition: background-color 200ms ease-in-out;
+}
+*/
+
+.tablist > ul p {
+    line-height: inherit;
+    margin: 0;
+}
+
+.tabpanel {
+    background-color: #fff;
+    padding: 1.25em;
+}
+
+.tablist > ul li,
+.tabpanel {
+    border: 1px solid #dcdcdc;
+}
+
+.tablist > ul li {
+    border-bottom: 0;
+}
+
+.tabs.is-loading .tabpanel + .tabpanel,
+.tabs:not(.is-loading) .tabpanel.is-hidden {
+    display: none;
+}
+
+.tabpanel > :first-child {
+    margin-top: 0;
+}
+
+/* #content is a signature of the Asciidoctor standalone HTML output */
+#content .tabpanel > :last-child,
+#content .tabpanel > :last-child > :last-child,
+#content .tabpanel > :last-child > :last-child > li:last-child > :last-child {
+    margin-bottom: 0;
+}
+
+.tablecontainer {
+    overflow-x: auto;
+}
+
+#content .tablecontainer {
+    margin-bottom: 1.25em;
+}
+
+#content .tablecontainer > table.tableblock {
+    margin-bottom: 0;
+}
+</style>
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -515,10 +627,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_계획_삭제_http_response">HTTP response</a></li>
 </ul>
 </li>
+<li><a href="#_계획_초대">계획 초대</a>
+<ul class="sectlevel3">
+<li><a href="#_계획_초대_http_request">HTTP request</a></li>
+<li><a href="#_계획_초대_http_response">HTTP response</a></li>
+</ul>
+</li>
 <li><a href="#_계획_참여">계획 참여</a>
 <ul class="sectlevel3">
 <li><a href="#_계획_참여_http_request">HTTP request</a></li>
 <li><a href="#_계획_참여_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_계획_초대_삭제">계획 초대 삭제</a>
+<ul class="sectlevel3">
+<li><a href="#_계획_초대_삭제_http_request">HTTP request</a></li>
+<li><a href="#_계획_초대_삭제_http_response">HTTP response</a></li>
 </ul>
 </li>
 <li><a href="#_계획_탈퇴">계획 탈퇴</a>
@@ -631,6 +755,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_그룹_초대_http_request">HTTP request</a></li>
 <li><a href="#_그룹_초대_http_response">HTTP response</a></li>
+</ul>
+</li>
+<li><a href="#_그룹_초대_삭제">그룹 초대 삭제</a>
+<ul class="sectlevel3">
+<li><a href="#_그룹_초대_삭제_http_request">HTTP request</a></li>
+<li><a href="#_그룹_초대_삭제_http_response">HTTP response</a></li>
 </ul>
 </li>
 <li><a href="#_위치_공유_on">위치 공유 ON</a>
@@ -991,7 +1121,7 @@ Content-Length: 367
 Host: localhost:8080
 
 {
-  "groupId" : "395cb3b4-8322-4b1b-a0a3-2f34ad47ac70",
+  "groupId" : "6770c832-d8c4-4144-9341-2ee7cb3034db",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
@@ -1013,8 +1143,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "c23ade7e-3ab5-47ec-96b7-dcc9aaa6de6e",
-  "groupId" : "eaf222d6-a804-42e8-92f5-b79d06c7d870"
+  "planId" : "3f617cc5-3002-4af4-8cae-4907d4a501ef",
+  "groupId" : "015744f5-6e4a-47a8-be52-1d0cf802e9d4"
 }</code></pre>
 </div>
 </div>
@@ -1026,7 +1156,7 @@ Content-Length: 109
 <h4 id="_계획_단건_조회_http_request"><a class="link" href="#_계획_단건_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/4e0da21b-5826-4203-badb-3c8b42bcb886 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/1d60c66b-c9f7-4686-a37f-d2c675a57966 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1042,9 +1172,9 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 996
 
 {
-  "planId" : "30844cab-e866-44a5-a568-58c246881a0c",
-  "placeId" : "e791fa28-f332-410b-ad02-0d05864b0da4",
-  "planMakerId" : "7afa61fe-09fa-4c38-a5bc-028bb5e52f6d",
+  "planId" : "937e6737-d66b-4f8e-a7cc-e2384d6d3dd4",
+  "placeId" : "1b510090-999f-4577-a13c-ad5680fcd954",
+  "planMakerId" : "a07678f3-0e19-4691-be54-7ba1b849f932",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
@@ -1054,20 +1184,20 @@ Content-Length: 996
     "latitude" : 37.0766874564297
   },
   "groupInfo" : {
-    "groupId" : "ad44e53e-74f1-49d3-b672-b8d8c372a6a7",
-    "leaderId" : "b940f3bc-4126-494e-b329-927d3b8edec1",
+    "groupId" : "03dc95f6-509a-42eb-89b0-89a6b02301f2",
+    "leaderId" : "f83162fc-60c7-4029-bba9-10ae28a6ed2d",
     "name" : "홍담진",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "id" : "d8baf2a2-edb0-4332-9dcf-f58903688f87",
+      "id" : "7b622dd5-3fc7-4f2b-b064-4baec587134d",
       "nickname" : "카즈하"
     }, {
-      "id" : "25a5afbc-b357-4c8a-a108-7dd02fcc4bc8",
+      "id" : "2fef5ad5-9a82-4a97-95bd-e1165e1bbcf2",
       "nickname" : "사쿠라"
     } ]
   },
   "members" : [ {
-    "id" : "d91a1371-241c-4a89-a421-b1e93a4346a6",
+    "id" : "3deb7908-b57d-4f4a-85aa-54a3069e28b5",
     "nickname" : "진호정"
   } ]
 }</code></pre>
@@ -1081,7 +1211,7 @@ Content-Length: 996
 <h4 id="_계획_삭제_http_request"><a class="link" href="#_계획_삭제_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/4cfe8984-fa2f-4c4d-8382-ac7fc124d4b6 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/bbd92361-db22-4ca8-9a99-3dede44ca084 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1098,6 +1228,40 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect2">
+<h3 id="_계획_초대"><a class="link" href="#_계획_초대">계획 초대</a></h3>
+<div class="sect3">
+<h4 id="_계획_초대_http_request"><a class="link" href="#_계획_초대_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans/invite HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 55
+Host: localhost:8080
+
+{
+  "planId" : "48e03a14-6933-4b33-ba9b-3bde6f18b2e3"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_계획_초대_http_response"><a class="link" href="#_계획_초대_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 109
+
+{
+  "planId" : "513e7bb0-cc84-4b24-9df1-ddf539100f6a",
+  "groupId" : "115e41b3-e519-4923-94f9-0a6a6c29a545"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_계획_참여"><a class="link" href="#_계획_참여">계획 참여</a></h3>
 <div class="sect3">
 <h4 id="_계획_참여_http_request"><a class="link" href="#_계획_참여_http_request">HTTP request</a></h4>
@@ -1106,19 +1270,11 @@ Host: localhost:8080</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /plans/join HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
-Content-Length: 367
+Content-Length: 55
 Host: localhost:8080
 
 {
-  "groupId" : "b3c61256-2f86-4844-a5a7-485d53f07d63",
-  "planDay" : "2023-12-25 13:30",
-  "placeDetails" : {
-    "placeName" : "이디야커피 안성죽산점",
-    "placeUrl" : "http://place.map.kakao.com/1562566188",
-    "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
-    "longitude" : 127.426865189637,
-    "latitude" : 37.0764635355795
-  }
+  "planId" : "46a0ca84-bcc4-4e96-bdde-c32ed4559c4d"
 }</code></pre>
 </div>
 </div>
@@ -1127,14 +1283,34 @@ Host: localhost:8080
 <h4 id="_계획_참여_http_response"><a class="link" href="#_계획_참여_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_계획_초대_삭제"><a class="link" href="#_계획_초대_삭제">계획 초대 삭제</a></h3>
+<div class="sect3">
+<h4 id="_계획_초대_삭제_http_request"><a class="link" href="#_계획_초대_삭제_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/invite HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 109
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 55
+Host: localhost:8080
 
 {
-  "planId" : "1459b94c-cf1b-4d85-b6ac-22b068c2451a",
-  "groupId" : "95ce4b81-71b8-421a-bbbd-5efef74eb55f"
+  "planId" : "c7d66a19-91f8-4157-928d-a6dad248c311"
 }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_계획_초대_삭제_http_response"><a class="link" href="#_계획_초대_삭제_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
 </div>
 </div>
 </div>
@@ -1152,7 +1328,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "61246081-3372-4dc6-ab06-1a5bb5f8bda5"
+  "planId" : "49566297-9fea-4f9f-ac4f-5cf15ea1ca82"
 }</code></pre>
 </div>
 </div>
@@ -1188,9 +1364,9 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 2000
 
 [ {
-  "planId" : "f6b041e7-b120-4954-bd4d-538712f668c2",
-  "placeId" : "8b4d9260-1671-4ea4-93f2-0ac7da9f02d0",
-  "planMakerId" : "dd4267d3-d2f3-488f-97d2-fe2a3be2576c",
+  "planId" : "5c9fe6b0-6db1-407f-a6c3-2e927b1ad286",
+  "placeId" : "daa26d4e-8540-441e-891b-8d306658350d",
+  "planMakerId" : "5e48f660-3430-4e77-8e30-9ea7469b0cb8",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
@@ -1200,26 +1376,26 @@ Content-Length: 2000
     "latitude" : 37.0766874564297
   },
   "groupInfo" : {
-    "groupId" : "4f6b9bbe-8b3d-46ad-9197-505d79b82fce",
-    "leaderId" : "c4aff428-5474-4e74-95b9-6de866276efe",
+    "groupId" : "c0431401-05de-4404-8eab-2f6a74f3a4a5",
+    "leaderId" : "d566e416-aac7-4a2f-9b1c-5ed4c045d8f7",
     "name" : "홍담진",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "id" : "5c7c62bc-0f17-4416-9545-1becf971ff6a",
+      "id" : "ccca6e6a-0add-42e3-8b03-e4d5c8e00712",
       "nickname" : "카즈하"
     }, {
-      "id" : "b21b7424-0660-4126-8d2b-acc47d9b712a",
+      "id" : "a135f396-9421-485a-aae3-887ae17f49e3",
       "nickname" : "사쿠라"
     } ]
   },
   "members" : [ {
-    "id" : "31e8b064-893c-4f76-995c-5bd8ccad2f1f",
+    "id" : "700ba609-e20b-4bc2-ab23-3ad8ded7026d",
     "nickname" : "진호정"
   } ]
 }, {
-  "planId" : "a184c1e8-4e4f-4244-a67d-5009c3b81be9",
-  "placeId" : "584b2c6d-3aaa-49c2-b9fe-19d19a38b386",
-  "planMakerId" : "aa27af48-2a4a-47e0-8257-b86372367d49",
+  "planId" : "bfccbcf3-bb84-4c4a-8798-f74b3f49f72c",
+  "placeId" : "1791db48-df43-4c65-93fa-77a5992a17d1",
+  "planMakerId" : "2636d6b7-e6ae-4cd3-8b8c-eb434699b0e9",
   "planDay" : "2023-12-26 15:30",
   "placeDetails" : {
     "placeName" : "카페 온유어마인드",
@@ -1229,20 +1405,20 @@ Content-Length: 2000
     "latitude" : 37.0766874564298
   },
   "groupInfo" : {
-    "groupId" : "a21100b2-e4f6-4c02-b720-e76e704e5f7e",
-    "leaderId" : "c1d18cdf-0cdf-4aba-b0db-2cd03dda18d0",
+    "groupId" : "3f7a068d-43e2-4fad-a8f5-dc4672dd5a11",
+    "leaderId" : "ca0bf16e-3258-423f-825d-8c9390b62a0d",
     "name" : "HongDamJin",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "id" : "2351d48a-0b93-4d32-9165-d03f78852ed3",
+      "id" : "5abaca21-426b-476f-8b38-8d3667c814cd",
       "nickname" : "카즈하"
     }, {
-      "id" : "ed487137-94ce-4e29-babb-9c117b824cf6",
+      "id" : "c5c50bb0-3955-4df8-bedd-e079b2922824",
       "nickname" : "사쿠라"
     } ]
   },
   "members" : [ {
-    "id" : "1502cd63-8c56-4d84-ba39-2f9655b441f4",
+    "id" : "795bbfd1-b36c-462d-a593-6d880bd15d6d",
     "nickname" : "JinHoJeong"
   } ]
 } ]</code></pre>
@@ -1263,7 +1439,7 @@ Content-Length: 306
 Host: localhost:8080
 
 {
-  "planId" : "054a985c-915b-4f34-bb4f-1eb6f05d8842",
+  "planId" : "d9b903dc-774a-4424-95fc-633cf0fe81f0",
   "placeName" : "별다방",
   "placeUrl" : "http://place.map.kakao.com/1562566188",
   "categoryGroupCode" : "CE7",
@@ -1296,7 +1472,7 @@ Content-Length: 91
 Host: localhost:8080
 
 {
-  "planId" : "ac74ae9a-7ce1-4a3a-96ea-26af101a7fef",
+  "planId" : "254631bf-c872-424f-859e-aa78b52043d7",
   "changeDay" : "2023-12-25 13:30"
 }</code></pre>
 </div>
@@ -1413,7 +1589,7 @@ Content-Length: 132
 {
   "isExist" : true,
   "memberResponse" : {
-    "id" : "782f9226-3671-4da6-871f-0662daa25f0c",
+    "id" : "bf7bd9c8-c8f4-4c92-aa31-1527cd32571b",
     "nickname" : "JIN_JOO_ONE"
   }
 }</code></pre>
@@ -1439,7 +1615,7 @@ Content-Length: 57
 Host: localhost:8080
 
 {
-  "memberId" : "89c07597-f378-4bb7-a6da-698ea2ef92a1"
+  "memberId" : "35d5a193-463f-4fe7-9a1e-76f3953da94e"
 }</code></pre>
 </div>
 </div>
@@ -1466,7 +1642,7 @@ Content-Length: 88
 Host: localhost:8080
 
 {
-  "memberId" : "f80925b9-5396-49d0-893a-803dca670a9f",
+  "memberId" : "2f0dcd1e-63be-4307-9a84-ef9bca3c622a",
   "friendStatus" : "ACCEPTED"
 }</code></pre>
 </div>
@@ -1503,10 +1679,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "06785ca7-c7f5-4d5e-b7e5-8747d78e0996",
+  "memberId" : "38fc93ec-1c52-4ea0-aa18-41a893f88ba8",
   "nickname" : "호진정"
 }, {
-  "memberId" : "e56838e2-744e-43aa-b4a5-6e186950cadf",
+  "memberId" : "781ab2ea-48b0-4d40-afea-c92d446671f1",
   "nickname" : "진정해"
 } ]</code></pre>
 </div>
@@ -1535,10 +1711,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 176
 
 [ {
-  "memberId" : "5d51376a-88b0-4a20-84f4-943a35e24815",
+  "memberId" : "fc89d6b7-cdb6-48d7-b478-8eec7500b5b9",
   "nickname" : "정해진"
 }, {
-  "memberId" : "6139b88d-061c-488b-9e1d-9c6183ac715e",
+  "memberId" : "7d7295b1-0188-4a30-8d46-a647b0e33b70",
   "nickname" : "주어진"
 } ]</code></pre>
 </div>
@@ -1567,10 +1743,10 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 170
 
 [ {
-  "memberId" : "cad192b3-bd6c-4b7b-929f-bcafbfa11d3e",
+  "memberId" : "701887f4-d62e-4afb-bcdc-511f948ddf1f",
   "nickname" : "호전"
 }, {
-  "memberId" : "2d60145d-a956-47ad-8a55-61d8778992be",
+  "memberId" : "5e3a57fe-ec11-4ec0-ba3d-d8be9a777a8b",
   "nickname" : "후진"
 } ]</code></pre>
 </div>
@@ -1605,14 +1781,14 @@ Content-Length: 350
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "32399079-f127-41cd-b744-ef7ac9849a78",
+  "leaderId" : "244fdb39-b731-4077-b541-ed692c05d520",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE",
   "groupMembers" : [ {
-    "id" : "055c2689-7d2f-45fe-853a-db7ed43cbdc0",
+    "id" : "315f7771-ce7a-463c-8105-b5b22c143828",
     "nickname" : "DEAN"
   }, {
-    "id" : "fd1f941e-b0d3-4e66-8ac7-42951e7d0b1a",
+    "id" : "97dd85dc-9222-4019-ab55-390b1f12e735",
     "nickname" : "ZION-T"
   } ]
 }</code></pre>
@@ -1649,14 +1825,14 @@ Content-Length: 350
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "c5520d92-8f95-4f21-b691-0f06110aecb1",
+  "leaderId" : "924e7ab6-725d-4ee2-b1af-caae46f077f4",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE",
   "groupMembers" : [ {
-    "id" : "4b517493-8330-4852-85db-9d999dd9a3f8",
+    "id" : "3381f0a8-8a14-4b97-9cca-dde82bb94ff7",
     "nickname" : "DEAN"
   }, {
-    "id" : "bdad0e45-ddba-468b-b449-c6e1b67b4d2d",
+    "id" : "2bcdd0df-9842-4747-a8d7-5f29e84afaf2",
     "nickname" : "ZION-T"
   } ]
 }</code></pre>
@@ -1677,7 +1853,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "ef470da6-8b53-4de5-9459-8c58b691f767"
+  "groupId" : "e708b348-c4a5-43e1-b55e-a157870407bb"
 }</code></pre>
 </div>
 </div>
@@ -1691,7 +1867,7 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 56
 
 {
-  "groupId" : "4c5a1230-fb88-40fc-ba63-8b342791c7d6"
+  "groupId" : "783f4198-9e24-4f97-91b6-b4130db77400"
 }</code></pre>
 </div>
 </div>
@@ -1710,8 +1886,8 @@ Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "4ff99168-186b-4a9c-997f-c30ff22a9467" ],
-  "groupId" : "262eb1b1-1f45-48ef-bf3c-d98c9e170a36"
+  "friendMemberIds" : [ "944a514c-6fb7-4d9a-9e56-62417aab5766" ],
+  "groupId" : "8ea73899-c5bf-4f6a-88d7-3383ab6f6979"
 }</code></pre>
 </div>
 </div>
@@ -1725,18 +1901,45 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 363
 
 {
-  "groupId" : "6ab19ece-a61e-4560-8c33-59430e60f6c0",
-  "leaderId" : "24efc4a3-a193-4fb9-8cb9-209c992f0f88",
+  "groupId" : "dea68294-350b-468b-ad87-58a4266df0b8",
+  "leaderId" : "81fbfdc8-71b1-467e-9551-a1a42ecf7dfc",
   "name" : "홍담진",
   "groupImage" : "http://someUrlToS3",
   "groupMembers" : [ {
-    "id" : "c578fd8c-3688-4f63-b40b-24d939ba5abc",
+    "id" : "7bbabf5d-356d-4bf7-89ed-022c3e7813a5",
     "nickname" : "DEAN"
   }, {
-    "id" : "94ed773b-a232-4e57-954e-e5ec27cfe417",
+    "id" : "cede7dac-7f80-4e31-8410-da516e8019c6",
     "nickname" : "ZION-T"
   } ]
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_그룹_초대_삭제"><a class="link" href="#_그룹_초대_삭제">그룹 초대 삭제</a></h3>
+<div class="sect3">
+<h4 id="_그룹_초대_삭제_http_request"><a class="link" href="#_그룹_초대_삭제_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /group/invite HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
+Content-Length: 56
+Host: localhost:8080
+
+{
+  "groupId" : "4e68d597-9ee0-41a0-bc1d-c160060cb29c"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_그룹_초대_삭제_http_response"><a class="link" href="#_그룹_초대_삭제_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
 </div>
 </div>
 </div>
@@ -1747,15 +1950,15 @@ Content-Length: 363
 <h4 id="_위치_공유_on_http_request"><a class="link" href="#_위치_공유_on_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/5032077a-bf7f-4b1b-81ea-f013d4cf4c64 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/01303e27-800b-4a4f-a133-73f6eb3adf07 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "f1ee6e67-f8d0-4df7-8929-54a8ab8a11c6" ],
-  "groupId" : "7af94d74-e060-4ad6-9f4b-4321ddc68ea2"
+  "friendMemberIds" : [ "2c088f1f-0cd4-4d5d-bbef-95726688e958" ],
+  "groupId" : "c813b7d4-90b6-4c0f-8ff1-3a7f4bb32dd2"
 }</code></pre>
 </div>
 </div>
@@ -1775,15 +1978,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_off_http_request"><a class="link" href="#_위치_공유_off_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/unshare/d488bd8b-b48c-4778-a3b9-df2e2914c559 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/unshare/39cda962-8dbf-4066-83d7-49b2ca629912 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "372ba212-ee4d-4902-ab68-3bbee8dbc29c" ],
-  "groupId" : "9b41d262-a038-4b78-9436-e74de023aa10"
+  "friendMemberIds" : [ "9d715444-eaaf-4c92-95cd-2b29f9c53cc6" ],
+  "groupId" : "d1597f9f-dd20-487d-952e-3665e6b9a4c2"
 }</code></pre>
 </div>
 </div>
@@ -1803,15 +2006,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_여부_조회_http_request"><a class="link" href="#_위치_공유_여부_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/2f3a815a-9118-439b-8bf5-5a706924d0dd HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/8622e5ce-23b8-4edb-81d6-374b4047019b HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "274c2bd7-c84f-4922-9f21-4d60602d9205" ],
-  "groupId" : "14ae435d-9fb5-4273-8d25-07df61f0a5ea"
+  "friendMemberIds" : [ "78bdd8cf-d0e7-4edf-8804-f6b7c240c2c6" ],
+  "groupId" : "ba1444b0-898a-4ce1-90af-4c296cc46c10"
 }</code></pre>
 </div>
 </div>
@@ -1825,8 +2028,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 129
 
 {
-  "groupId" : "c7aefe48-c27c-4e21-b05b-393c6c67065c",
-  "memberId" : "198dd9b1-f0cf-4979-9838-be92cf3746b4",
+  "groupId" : "56730eaf-713c-47e7-a56c-228afefcc9bb",
+  "memberId" : "83cd4643-0feb-4e17-8d73-01c5aa36e5ea",
   "share" : true
 }</code></pre>
 </div>
@@ -1855,27 +2058,27 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 739
 
 [ {
-  "groupId" : "6738b06d-f5ee-4b0c-9cb7-410d5aefb0cd",
-  "leaderId" : "3dc6f5dc-943b-4502-8488-f497efb553b6",
+  "groupId" : "921bfcf9-dd4e-49a0-9682-b0f2ab731cc9",
+  "leaderId" : "bafd23d2-5414-4c91-8bea-b45965ee24cd",
   "name" : "BLACK_PINK",
   "groupImage" : "I_LOVE_YOU_LOSE",
   "groupMembers" : [ {
-    "id" : "eb08a425-9cfd-4d20-afe2-82f42f65944b",
+    "id" : "d4932af8-6f7a-4f2d-82ce-b0f123d75e3f",
     "nickname" : "LISA"
   }, {
-    "id" : "9bfec070-88b1-448b-b89d-3311cd656a50",
+    "id" : "fb7de72e-dd03-4ba2-a742-25971fdd1cb0",
     "nickname" : "제니"
   } ]
 }, {
-  "groupId" : "ca44bc45-a0a1-4816-85f2-2e1f808c2140",
-  "leaderId" : "3dc6f5dc-943b-4502-8488-f497efb553b6",
+  "groupId" : "af68bb80-ebd3-40d9-8aa8-e15446c39a3b",
+  "leaderId" : "bafd23d2-5414-4c91-8bea-b45965ee24cd",
   "name" : "LE_SSERAFIM",
   "groupImage" : "I_LOVE_YOU_채원",
   "groupMembers" : [ {
-    "id" : "2043dd9f-d846-49c5-ad44-72f2d43069cc",
+    "id" : "734b4df8-8f8f-4bdf-b9c1-2c7801b5a7ab",
     "nickname" : "카즈하"
   }, {
-    "id" : "1a6e5178-f701-4080-b669-9c5bfd8ede93",
+    "id" : "07c2065f-ac5a-4f45-81cb-23ac8c033f1e",
     "nickname" : "사쿠라"
   } ]
 } ]</code></pre>
@@ -1896,7 +2099,7 @@ Content-Length: 97
 Host: localhost:8080
 
 {
-  "groupId" : "ae2c48e6-c350-4825-88e0-421fdb701bc4",
+  "groupId" : "db45613d-944c-4f6c-a9ed-7eb6d679a77b",
   "longitude" : 0.0,
   "latitude" : 0.0
 }</code></pre>
@@ -1925,7 +2128,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "c9745857-a307-4867-ad45-5c4d5d5c2ad5"
+  "groupId" : "7835b4f5-99de-4888-b7fc-d479a7d39011"
 }</code></pre>
 </div>
 </div>
@@ -1980,7 +2183,7 @@ Content-Length: 76
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-12-20 14:41:42 +0900
+Last updated 2023-12-12 17:52:20 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
@@ -1989,6 +2192,135 @@ if (!hljs.initHighlighting.called) {
   hljs.initHighlighting.called = true
   ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
 }
+</script>
+<script>
+;(function () { /*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
+  'use strict'
+
+  var config = (document.currentScript || {}).dataset || {}
+  var forEach = Array.prototype.forEach
+
+  init(document.querySelectorAll('.tabs'))
+
+  function init (tabsBlocks) {
+    if (!tabsBlocks.length) return
+    forEach.call(tabsBlocks, function (tabs) {
+      var syncIds = tabs.classList.contains('is-sync') ? {} : undefined
+      var tablist = tabs.querySelector('.tablist ul')
+      tablist.setAttribute('role', 'tablist')
+      var start
+      forEach.call(tablist.querySelectorAll('li'), function (tab, idx) {
+        tab.tabIndex = -1
+        tab.setAttribute('role', tab.classList.add('tab') || 'tab')
+        var id, anchor, syncId
+        if (!(id = tab.id) && (anchor = tab.querySelector('a[id]'))) {
+          id = tab.id = anchor.parentNode.removeChild(anchor).id
+        }
+        var panel = id && tabs.querySelector('.tabpanel[aria-labelledby~="' + id + '"]')
+        if (!panel) return idx ? undefined : toggleSelected(tab, true) // invalid state
+        syncIds && (((syncId = tab.textContent.trim()) in syncIds) ? (syncId = undefined) : true) &&
+        (syncIds[(tab.dataset.syncId = syncId)] = tab)
+        idx || (syncIds && (start = { tab: tab, panel: panel })) ? toggleHidden(panel, true) : toggleSelected(tab, true)
+        tab.setAttribute('aria-controls', panel.id)
+        panel.setAttribute('role', 'tabpanel')
+        var onClick = syncId === undefined ? activateTab : activateTabSync
+        tab.addEventListener('click', onClick.bind({ tabs: tabs, tab: tab, panel: panel }))
+      })
+      if (!tabs.closest('.tabpanel')) {
+        forEach.call(tabs.querySelectorAll('.tabpanel table.tableblock'), function (table) {
+          var container = Object.assign(document.createElement('div'), { className: 'tablecontainer' })
+          table.parentNode.insertBefore(container, table).appendChild(table)
+        })
+      }
+      if (start) {
+        var syncGroupId
+        for (var i = 0, lst = tabs.classList, len = lst.length, className; i !== len; i++) {
+          if (!(className = lst.item(i)).startsWith('data-sync-group-id=')) continue
+          tabs.dataset.syncGroupId = syncGroupId = lst.remove(className) || className.slice(19).replace(/\u00a0/g, ' ')
+          break
+        }
+        if (syncGroupId === undefined) tabs.dataset.syncGroupId = syncGroupId = Object.keys(syncIds).sort().join('|')
+        var preferredSyncId = 'syncStorageKey' in config &&
+          window[(config.syncStorageScope || 'local') + 'Storage'].getItem(config.syncStorageKey + '-' + syncGroupId)
+        var tab = preferredSyncId && syncIds[preferredSyncId]
+        tab && Object.assign(start, { tab: tab, panel: document.getElementById(tab.getAttribute('aria-controls')) })
+        toggleSelected(start.tab, true) || toggleHidden(start.panel, false)
+      }
+    })
+    onHashChange()
+    toggleClassOnEach(tabsBlocks, 'is-loading', 'remove')
+    window.setTimeout(toggleClassOnEach.bind(null, tabsBlocks, 'is-loaded', 'add'), 0)
+    window.addEventListener('hashchange', onHashChange)
+  }
+
+  function activateTab (e) {
+    var tab = this.tab
+    var tabs = this.tabs || (this.tabs = tab.closest('.tabs'))
+    var panel = this.panel || (this.panel = document.getElementById(tab.getAttribute('aria-controls')))
+    querySelectorWithSiblings(tabs, '.tablist .tab', 'tab').forEach(function (el) {
+      toggleSelected(el, el === tab)
+    })
+    querySelectorWithSiblings(tabs, '.tabpanel', 'tabpanel').forEach(function (el) {
+      toggleHidden(el, el !== panel)
+    })
+    if (!this.isSync && 'syncStorageKey' in config && 'syncGroupId' in tabs.dataset) {
+      var storageKey = config.syncStorageKey + '-' + tabs.dataset.syncGroupId
+      window[(config.syncStorageScope || 'local') + 'Storage'].setItem(storageKey, tab.dataset.syncId)
+    }
+    if (!e) return
+    var loc = window.location
+    var hashIdx = loc.hash ? loc.href.indexOf('#') : -1
+    if (~hashIdx) window.history.replaceState(null, '', loc.href.slice(0, hashIdx))
+    e.preventDefault()
+  }
+
+  function activateTabSync (e) {
+    activateTab.call(this, e)
+    var thisTabs = this.tabs
+    var thisTab = this.tab
+    var initialY = thisTabs.getBoundingClientRect().y
+    forEach.call(document.querySelectorAll('.tabs'), function (tabs) {
+      if (tabs === thisTabs || tabs.dataset.syncGroupId !== thisTabs.dataset.syncGroupId) return
+      querySelectorWithSiblings(tabs, '.tablist .tab', 'tab').forEach(function (tab) {
+        if (tab.dataset.syncId === thisTab.dataset.syncId) activateTab.call({ tabs: tabs, tab: tab, isSync: true })
+      })
+    })
+    var shiftedBy = thisTabs.getBoundingClientRect().y - initialY
+    if (shiftedBy && (shiftedBy = Math.round(shiftedBy))) window.scrollBy({ top: shiftedBy, behavior: 'instant' })
+  }
+
+  function querySelectorWithSiblings (scope, selector, siblingClass) {
+    var el = scope.querySelector(selector)
+    if (!el) return []
+    var result = [el]
+    while ((el = el.nextElementSibling) && el.classList.contains(siblingClass)) result.push(el)
+    return result
+  }
+
+  function toggleClassOnEach (elements, className, method) {
+    forEach.call(elements, function (el) {
+      el.classList[method](className)
+    })
+  }
+
+  function toggleHidden (el, state) {
+    el.classList[(el.hidden = state) ? 'add' : 'remove']('is-hidden')
+  }
+
+  function toggleSelected (el, state) {
+    el.setAttribute('aria-selected', '' + state)
+    el.classList[state ? 'add' : 'remove']('is-selected')
+    el.tabIndex = state ? 0 : -1
+  }
+
+  function onHashChange () {
+    var id = window.location.hash.slice(1)
+    if (!id) return
+    var tab = document.getElementById(~id.indexOf('%') ? decodeURIComponent(id) : id)
+    if (!(tab && tab.classList.contains('tab'))) return
+    'syncId' in tab.dataset ? activateTabSync.call({ tab: tab }) : activateTab.call({ tab: tab })
+  }
+})()
 </script>
 </body>
 </html>
