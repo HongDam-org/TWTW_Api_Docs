@@ -583,6 +583,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_저장된_멤버_로그인_http_response">HTTP response</a></li>
 </ul>
 </li>
+<li><a href="#_디바이스_토큰_업데이트">디바이스 토큰 업데이트</a>
+<ul class="sectlevel3">
+<li><a href="#_디바이스_토큰_업데이트_http_request">HTTP request</a></li>
+<li><a href="#_디바이스_토큰_업데이트_http_response">HTTP response</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_path">Path</a>
@@ -882,12 +888,13 @@ Content-Length: 84
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /auth/save HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 163
+Content-Length: 197
 Host: localhost:8080
 
 {
   "nickname" : "정해진",
   "profileImage" : "http://some-url-to-profile-image",
+  "deviceToken" : "DEVICE_TOKEN",
   "oauthRequest" : {
     "token" : "client-id",
     "authType" : "APPLE"
@@ -952,6 +959,32 @@ Content-Length: 132
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_디바이스_토큰_업데이트"><a class="link" href="#_디바이스_토큰_업데이트">디바이스 토큰 업데이트</a></h3>
+<div class="sect3">
+<h4 id="_디바이스_토큰_업데이트_http_request"><a class="link" href="#_디바이스_토큰_업데이트_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /auth/device HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 42
+Host: localhost:8080
+
+{
+  "deviceToken" : "THIS_IS_TEST_TOKEN"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_디바이스_토큰_업데이트_http_response"><a class="link" href="#_디바이스_토큰_업데이트_http_response">HTTP response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -969,8 +1002,8 @@ Content-Length: 144
 Host: localhost:8080
 
 {
-  "start" : "126.827507,37.636040",
-  "end" : "126.832659,37.644998",
+  "start" : "37.636040,126.827507",
+  "end" : "37.644998,126.832659",
   "way" : "",
   "option" : "TRAFAST",
   "fuel" : "DIESEL",
@@ -1020,10 +1053,10 @@ Content-Length: 151
 Host: localhost:8080
 
 {
-  "startX" : 126.827507,
-  "startY" : 37.63604,
-  "endX" : 126.832659,
-  "endY" : 37.644998,
+  "startX" : 37.63604,
+  "startY" : 126.827507,
+  "endX" : 37.644998,
+  "endY" : 126.832659,
   "startName" : "startPoint",
   "endName" : "endPoint"
 }</code></pre>
@@ -1118,7 +1151,7 @@ Host: localhost:8080
 
 {
   "name" : "약속이름",
-  "groupId" : "5605757a-11fb-441d-95d4-36de7a8ec1ab",
+  "groupId" : "17f801fa-98c4-4052-b226-20804e86d5be",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
     "placeName" : "카페 온마이마인드",
@@ -1127,7 +1160,7 @@ Host: localhost:8080
     "longitude" : 127.420430538256,
     "latitude" : 37.0766874564297
   },
-  "memberIds" : [ "dfb4e896-ca94-4ede-94f8-6f14096f8870", "9fba2699-a873-4e3f-b3eb-dc0eead5025f" ]
+  "memberIds" : [ "b3296ddb-fde6-470e-a3f9-33e4a6a4fb61", "2aa6d47a-088c-4d34-952c-e42ae4f477b6" ]
 }</code></pre>
 </div>
 </div>
@@ -1141,8 +1174,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "0aff61e1-1982-4e4e-91a2-be496d94d9b8",
-  "groupId" : "80ad1822-fc9e-43c6-9cc3-0e640216ebbb"
+  "planId" : "9b758ac0-477c-41d5-b239-580598b92ede",
+  "groupId" : "856e3f49-2f34-4e07-abd4-a43c84c072e6"
 }</code></pre>
 </div>
 </div>
@@ -1154,7 +1187,7 @@ Content-Length: 109
 <h4 id="_계획_단건_조회_http_request"><a class="link" href="#_계획_단건_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/11841e52-9772-41be-a67d-01a6e2c9ffc2 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /plans/70870092-f969-4ce1-80ca-a5d4bf0cb9d8 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1170,9 +1203,9 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 1335
 
 {
-  "planId" : "60d8d48f-32aa-4bf8-80c8-1c594443bf67",
-  "placeId" : "56c123ea-703d-4ff5-a2bb-28bd697f4173",
-  "planMakerId" : "52b411f2-f18d-439e-a758-7ae957282193",
+  "planId" : "ab487d47-963c-4ad7-a0bf-12869c8aec24",
+  "placeId" : "ca686763-fbd1-4346-b4e5-9229736be4c2",
+  "planMakerId" : "d01e6c78-edd5-4f3b-8ff3-c19caede0a29",
   "name" : "약속이름",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
@@ -1183,27 +1216,27 @@ Content-Length: 1335
     "latitude" : 37.0766874564297
   },
   "groupInfo" : {
-    "groupId" : "1006f2f8-6866-4401-83b2-1572c232decc",
-    "leaderId" : "3c2f7594-8606-4dc8-a107-b4439c85cff3",
+    "groupId" : "3867dc91-4d23-4ae9-8fbb-14423497f131",
+    "leaderId" : "5b8f63af-e5f4-4e2b-9e49-76a367f2549a",
     "name" : "홍담진",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "memberId" : "7662be52-a321-4a80-aac8-44a160992401",
+      "memberId" : "75d29c19-09e5-4bd9-b12c-ec5952394c7b",
       "nickname" : "카즈하",
       "profileImage" : "http://HJ39FaceCamera"
     }, {
-      "memberId" : "f799e337-f3e5-4dfc-81a3-75830901b904",
+      "memberId" : "18db8095-589f-4279-b0ab-68059981e340",
       "nickname" : "사쿠라",
       "profileImage" : "http://HJ39FaceCam"
     } ]
   },
   "members" : [ {
-    "memberId" : "294ffcd6-acce-4e0a-9acd-a91b3b58e54a",
+    "memberId" : "6dbab682-de56-4b73-be84-72e5d7104ef8",
     "nickname" : "진호정",
     "profileImage" : "http://HJ39Face"
   } ],
   "notJoinedMembers" : [ {
-    "memberId" : "9a53ea12-96c6-4c1a-af1e-a3f6806e320a",
+    "memberId" : "0ff5589b-5562-4bbb-a312-867e7f7b85cb",
     "nickname" : "진정Ho",
     "profileImage" : "http://HJ39Camera"
   } ]
@@ -1218,7 +1251,7 @@ Content-Length: 1335
 <h4 id="_계획_삭제_http_request"><a class="link" href="#_계획_삭제_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/3776d6f1-9b14-4b8c-86cf-56276a46b038 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /plans/1a26aca5-97d4-4a9d-8659-8eb7341e54f1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Host: localhost:8080</code></pre>
@@ -1247,7 +1280,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "587493b4-eff6-4dc1-835d-b6a448aab599"
+  "planId" : "55cae1a5-0da0-4bd6-8bf5-45cb4db13ac5"
 }</code></pre>
 </div>
 </div>
@@ -1261,8 +1294,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 109
 
 {
-  "planId" : "a935e9a6-2da7-4dd2-8dc2-56373cb01753",
-  "groupId" : "0ae4d2d2-1b07-43ed-8638-04009aba0a52"
+  "planId" : "87d58c78-381c-41b3-b32a-eadb5d2bc50b",
+  "groupId" : "07110a78-0516-4316-8219-d1b1be85b71a"
 }</code></pre>
 </div>
 </div>
@@ -1281,7 +1314,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "c99d7e37-b074-49d9-9438-d5e15ec2b205"
+  "planId" : "6f50e9f9-6ea6-47b0-86c9-6eb0d57840dc"
 }</code></pre>
 </div>
 </div>
@@ -1308,7 +1341,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "e241d6ec-1063-46a7-8d4a-385352e8192e"
+  "planId" : "303b8647-ebda-469f-97c9-1fd87d39135e"
 }</code></pre>
 </div>
 </div>
@@ -1335,7 +1368,7 @@ Content-Length: 55
 Host: localhost:8080
 
 {
-  "planId" : "25d9b00d-e089-4163-a635-331bb17083fe"
+  "planId" : "d1dc84d7-043d-46f5-b46d-2c06295cc1f7"
 }</code></pre>
 </div>
 </div>
@@ -1371,9 +1404,9 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 2311
 
 [ {
-  "planId" : "8dbf2dae-031d-4786-9d78-089fe052d963",
-  "placeId" : "49d95012-250e-457c-a9c3-9486ec87af2e",
-  "planMakerId" : "f9450b3a-d0ff-4880-ade8-a0601e3362ea",
+  "planId" : "aff37382-a334-427f-b8f4-3557d27f0a8e",
+  "placeId" : "d32c389a-3750-400a-871f-f46a35dfc8b4",
+  "planMakerId" : "35e8796c-7b86-4d08-87d6-c165142e2caf",
   "name" : "약속1",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
@@ -1384,29 +1417,29 @@ Content-Length: 2311
     "latitude" : 37.0766874564297
   },
   "groupInfo" : {
-    "groupId" : "ac7a9b32-83ca-4ed1-8d16-40ef3be2d75d",
-    "leaderId" : "3020bdfe-9120-4cb9-a338-4bb13703b090",
+    "groupId" : "9146e6d7-6f9e-4246-8087-4271b6a4cb82",
+    "leaderId" : "d7f78091-9680-4bee-bd2b-bd536303ebd0",
     "name" : "홍담진",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "memberId" : "9539dc0d-1125-4ce0-915f-4a96e8eeb43f",
+      "memberId" : "1ff3a302-4180-4b37-bc70-29fb2b674fe8",
       "nickname" : "카즈하",
       "profileImage" : "http://HJ39GOAT"
     }, {
-      "memberId" : "76e7fe66-a719-4ab1-9527-0d75ede815cc",
+      "memberId" : "95d8ffb5-96b6-4298-8713-b6652076406a",
       "nickname" : "사쿠라",
       "profileImage" : "http://HJ39"
     } ]
   },
   "members" : [ {
-    "memberId" : "0070e1f5-1587-4e91-a7af-e64a3f1f54d4",
+    "memberId" : "2e3089f7-6b31-481f-a9fd-e6715fd013f2",
     "nickname" : "진호정",
     "profileImage" : "http://HoJin39"
   } ]
 }, {
-  "planId" : "799e4c32-f64d-4bf9-8cea-3d4a2c036b46",
-  "placeId" : "8876644c-dc35-49d1-905a-2b5ade8a636f",
-  "planMakerId" : "998ef2ee-5bfd-45ab-9891-a243490afa6c",
+  "planId" : "63a16232-25ac-45df-9507-423cb75b1e98",
+  "placeId" : "f3aeb88f-314e-411a-bb5b-d7f0c71674ae",
+  "planMakerId" : "7b194b20-a08e-4e6a-8d94-86220068f274",
   "name" : "약속2",
   "planDay" : "2023-12-25 15:30",
   "placeDetails" : {
@@ -1417,22 +1450,22 @@ Content-Length: 2311
     "latitude" : 37.0766874564297
   },
   "groupInfo" : {
-    "groupId" : "5aab2c7a-ab0c-4a1b-a9cf-b46fb951e639",
-    "leaderId" : "b46257f6-bf65-448a-83e9-62ed266b9889",
+    "groupId" : "42bfc690-584a-4aea-a8a3-70fc42db7ff4",
+    "leaderId" : "58296368-af45-45c9-b9ad-7535d6419cc1",
     "name" : "HongDamJin",
     "groupImage" : "http://someUrlToS3",
     "groupMembers" : [ {
-      "memberId" : "f63ffa99-4a5d-468b-b808-0d490de5ba7e",
+      "memberId" : "f63dcfe1-c5b3-4c95-a744-36c3fb03ef5c",
       "nickname" : "카즈하",
       "profileImage" : "http://HJ39"
     }, {
-      "memberId" : "acdd373a-146e-488a-a2df-21637fe4526b",
+      "memberId" : "e576fb06-8bc2-4cb6-ade2-a3b48c51ca0a",
       "nickname" : "사쿠라",
       "profileImage" : "http://HJ39"
     } ]
   },
   "members" : [ {
-    "memberId" : "20140de3-5211-4b77-9109-f68c73242eb2",
+    "memberId" : "9f6d3455-db53-492f-bbfd-7f1b80758d45",
     "nickname" : "JinHoJeong",
     "profileImage" : "http://HJ39"
   } ]
@@ -1454,8 +1487,8 @@ Content-Length: 464
 Host: localhost:8080
 
 {
-  "planId" : "76d47df8-2ae4-4c86-91eb-07c4840cbea1",
-  "planDay" : "2023-12-27 21:49",
+  "planId" : "2c9a470f-a320-4f06-b3d2-7a70ecbafd71",
+  "planDay" : "2023-12-30 03:13",
   "name" : "약속명",
   "placeName" : "별다방",
   "placeUrl" : "http://place.map.kakao.com/1562566188",
@@ -1463,7 +1496,7 @@ Host: localhost:8080
   "roadAddressName" : "경기 안성시 죽산면 죽주로 287-1",
   "longitude" : 127.426865189637,
   "latitude" : 37.0764635355795,
-  "memberIds" : [ "7359b31a-1c4c-472f-aa26-0a077861bd82", "6a2b2f92-69e2-4189-bfdb-f6934d9a6c00" ]
+  "memberIds" : [ "b255c8bf-183b-4c72-89ca-5b9fa0e6c159", "c77b01bd-7116-4713-902d-02c97ffc4a0f" ]
 }</code></pre>
 </div>
 </div>
@@ -1490,7 +1523,7 @@ Content-Length: 91
 Host: localhost:8080
 
 {
-  "planId" : "9c8cbe05-b533-4426-9058-5ed6a939fcaa",
+  "planId" : "17a004eb-6306-4988-9404-bdd17b9bcba0",
   "changeDay" : "2023-12-25 13:30"
 }</code></pre>
 </div>
@@ -1607,7 +1640,7 @@ Content-Length: 174
 {
   "isExist" : true,
   "memberResponse" : {
-    "memberId" : "c360e61b-42d8-4b0b-9d32-b5dfde541948",
+    "memberId" : "9e57dbf5-673b-4154-b71f-d574c4f74143",
     "nickname" : "JIN_JOO_ONE",
     "profileImage" : "http://HJ39"
   }
@@ -1634,7 +1667,7 @@ Content-Length: 57
 Host: localhost:8080
 
 {
-  "memberId" : "a9747177-b59f-41fb-b3ac-0237eaad8851"
+  "memberId" : "5b4999a8-4a72-430b-a990-91eae096e99f"
 }</code></pre>
 </div>
 </div>
@@ -1661,7 +1694,7 @@ Content-Length: 88
 Host: localhost:8080
 
 {
-  "memberId" : "f6d1762d-972d-48dc-967a-530f1fb63f3f",
+  "memberId" : "df9c6b28-7bfb-4dee-bddb-58fac3bdbf7a",
   "friendStatus" : "ACCEPTED"
 }</code></pre>
 </div>
@@ -1698,11 +1731,11 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 264
 
 [ {
-  "memberId" : "92efeea3-62f9-463a-a5df-b251f4251788",
+  "memberId" : "b37759b7-38fa-4ce2-b395-3ae5198dd383",
   "nickname" : "호진정",
   "profileImage" : "http://hojiniSelfie"
 }, {
-  "memberId" : "bf7f652b-1d8d-40ef-98fb-e1489717d971",
+  "memberId" : "e4d25c51-d47c-4451-9826-d63e0ff56d2b",
   "nickname" : "진정해",
   "profileImage" : "http://hojiniSelfCamera"
 } ]</code></pre>
@@ -1732,11 +1765,11 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 264
 
 [ {
-  "memberId" : "df3744e8-80fa-4192-be20-9d04d4e501bd",
+  "memberId" : "2bd07c02-02a4-43a5-8dae-5f2a7de55095",
   "nickname" : "정해진",
   "profileImage" : "http://hojiniSelfie"
 }, {
-  "memberId" : "6cbeb89d-89f0-4390-bfb6-cc8ac3c07da7",
+  "memberId" : "7d7a2ebd-0822-4256-b212-7602858cefb3",
   "nickname" : "주어진",
   "profileImage" : "http://hojiniSelfCamera"
 } ]</code></pre>
@@ -1766,11 +1799,11 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 254
 
 [ {
-  "memberId" : "3bc97f87-1d7f-4c91-a95a-b0e23e4bd3db",
+  "memberId" : "260c461e-14da-4931-bba9-523f1c146543",
   "nickname" : "호전",
   "profileImage" : "http://HJ39Selfie"
 }, {
-  "memberId" : "6341ed25-35e1-49ea-8e2d-5c1e0d48f161",
+  "memberId" : "0cfc892e-91fc-487c-978a-083799fd2779",
   "nickname" : "후진",
   "profileImage" : "http://HJ39SelfCamera"
 } ]</code></pre>
@@ -1806,15 +1839,15 @@ Content-Length: 450
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "b235e6d2-797d-42f9-81af-a21728993d7b",
+  "leaderId" : "5d3927b5-03a4-4ce1-a6dd-054185450ee2",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE",
   "groupMembers" : [ {
-    "memberId" : "2782738f-63e9-401c-9332-b76a0ac15f75",
+    "memberId" : "3df8d5c1-6f6a-47a8-b7cf-48558d418ded",
     "nickname" : "DEAN",
     "profileImage" : "http://hojiniSelfie"
   }, {
-    "memberId" : "e0e776cf-dd32-4c73-a05b-1341cebce168",
+    "memberId" : "497e0847-0067-4d12-9ad2-fb27d0d5c5c0",
     "nickname" : "ZION-T",
     "profileImage" : "http://hojiniSelfie"
   } ]
@@ -1852,15 +1885,15 @@ Content-Length: 450
 
 {
   "groupId" : "550e8400-e29b-41d4-a716-446655440000",
-  "leaderId" : "97fb6a4a-86f1-4af3-b3b1-bc53b346a7b9",
+  "leaderId" : "96245df1-f07a-4c1c-8968-2e39089a8fdc",
   "name" : "HDJ",
   "groupImage" : "GROUP-IMAGE",
   "groupMembers" : [ {
-    "memberId" : "795c2dc5-7245-4aea-a1ab-5e00075672a5",
+    "memberId" : "2f3aa1de-6000-4261-9ab1-1ba7bc92e82b",
     "nickname" : "DEAN",
     "profileImage" : "http://hojiniSelfie"
   }, {
-    "memberId" : "cc00adfb-55fa-4b62-92ae-f18a7716ede9",
+    "memberId" : "5d30ec32-ae1b-4145-971a-c190dfa3deb4",
     "nickname" : "ZION-T",
     "profileImage" : "http://hojiniSelfie"
   } ]
@@ -1882,7 +1915,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "2f75c93c-f8e0-4aaa-8bdf-6b986cb6546a"
+  "groupId" : "eb87a505-5bc3-4dd9-bb46-f1545086959e"
 }</code></pre>
 </div>
 </div>
@@ -1896,7 +1929,7 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 56
 
 {
-  "groupId" : "026b0b67-fd85-4e7d-a28a-0431b74a1cc0"
+  "groupId" : "3de7bb09-762b-47cb-b8d0-97e112936e45"
 }</code></pre>
 </div>
 </div>
@@ -1915,8 +1948,8 @@ Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "ae2508d8-8c2e-4c25-ad62-0cd55036439c" ],
-  "groupId" : "c395ccf1-26f8-4620-9db7-27a010f899cc"
+  "friendMemberIds" : [ "280fd3a1-96b8-4ac9-b9f6-5618c53d0fd3" ],
+  "groupId" : "0d3cb22c-3d9a-42a9-93c6-d49c9b366098"
 }</code></pre>
 </div>
 </div>
@@ -1930,16 +1963,16 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 463
 
 {
-  "groupId" : "2976fdee-f53a-40a7-bf5a-aac64f24aa51",
-  "leaderId" : "2b4bd615-db8c-452c-bc1b-a4c001022827",
+  "groupId" : "8eedfa68-02f5-462c-a7c3-76d1e15d119f",
+  "leaderId" : "371720a0-a78f-4533-96e7-bbb81ab78778",
   "name" : "홍담진",
   "groupImage" : "http://someUrlToS3",
   "groupMembers" : [ {
-    "memberId" : "74d1bff5-575b-4042-8605-ae5274bf0d0c",
+    "memberId" : "a4c913bc-6d26-450f-8b25-41f0826e0593",
     "nickname" : "DEAN",
     "profileImage" : "http://hojiniSelfie"
   }, {
-    "memberId" : "25878e1c-cbc4-4e34-9675-0640613a5ada",
+    "memberId" : "ca1c3479-280e-4161-8ec2-3e76bb012b3f",
     "nickname" : "ZION-T",
     "profileImage" : "http://hojiniSelfie"
   } ]
@@ -1961,7 +1994,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "4cc82eba-00b1-4b9b-909d-29b3bc7956c2"
+  "groupId" : "1ff6378a-4acf-4435-ad48-f1d5711e6d86"
 }</code></pre>
 </div>
 </div>
@@ -1981,15 +2014,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_on_http_request"><a class="link" href="#_위치_공유_on_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/d338dfb0-4318-4581-85ad-e8fbf6c9aef0 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/share/938743e5-698f-4c19-903d-dadf0b0a7c38 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "6b0abd9e-35ef-4a6d-99a6-d72bb4c73476" ],
-  "groupId" : "ac08cbf0-4c70-46e4-8fa9-e931810ec15b"
+  "friendMemberIds" : [ "dad0e2d8-89c1-4f30-858d-88e448eadcbb" ],
+  "groupId" : "01d76942-4fc0-4817-ae76-f909d4c7a6ce"
 }</code></pre>
 </div>
 </div>
@@ -2009,15 +2042,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_off_http_request"><a class="link" href="#_위치_공유_off_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/unshare/b51035cf-e695-433f-a41c-a5e45740e332 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /group/unshare/cb774e4f-e298-4caa-9992-300fa1ead05d HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "64eb0d3c-3994-4bf5-a291-0f1d74fbe848" ],
-  "groupId" : "f85e7323-579d-4e84-9964-6cd696b6d360"
+  "friendMemberIds" : [ "4222dc12-e100-4713-9629-1b0510cab297" ],
+  "groupId" : "ee91b64c-44a7-43aa-828e-0a576cd431b7"
 }</code></pre>
 </div>
 </div>
@@ -2037,15 +2070,15 @@ Host: localhost:8080
 <h4 id="_위치_공유_여부_조회_http_request"><a class="link" href="#_위치_공유_여부_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/b4db455b-4a21-4eeb-8014-98c6f9115ad6 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /group/share/db974a98-e13e-4fce-b2d8-3d0bbe9d20c4 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer wefa3fsdczf32.gaoiuergf92.gb5hsa2jgh
 Content-Length: 122
 Host: localhost:8080
 
 {
-  "friendMemberIds" : [ "36f0468b-dc94-4694-ab54-fd33a56436ed" ],
-  "groupId" : "ac7f5bb3-bcd7-4771-9080-cc30a0cdec45"
+  "friendMemberIds" : [ "42733a56-660a-43cf-b987-c6c95c862f97" ],
+  "groupId" : "e3288461-ae50-460b-8c5c-0081cb2f348f"
 }</code></pre>
 </div>
 </div>
@@ -2059,8 +2092,8 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 129
 
 {
-  "groupId" : "e26aa82f-c215-405d-852a-fd2bf89c061f",
-  "memberId" : "008e8838-828e-47a3-b33a-de7f4bcd9897",
+  "groupId" : "1bdc8de0-958a-462a-aefe-52c8a20579dc",
+  "memberId" : "58a78c6a-a001-453a-8e6b-c9f4f2bc737f",
   "share" : true
 }</code></pre>
 </div>
@@ -2089,30 +2122,30 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 958
 
 [ {
-  "groupId" : "787b4cfb-cffa-4381-8c3f-07b51619bc2d",
-  "leaderId" : "a83066da-91a4-4e80-803e-50010c427c9f",
+  "groupId" : "3170e64b-125f-458e-b54a-f28817fade73",
+  "leaderId" : "037e07df-1c6f-4fb5-989e-86d8dc168478",
   "name" : "BLACK_PINK",
   "groupImage" : "I_LOVE_YOU_LOSE",
   "groupMembers" : [ {
-    "memberId" : "6bccdc42-664c-4083-b2a2-10828d572228",
+    "memberId" : "a6f0d0b8-0c4a-4dca-997c-87ab4614f157",
     "nickname" : "LISA",
     "profileImage" : "http://hojiniSelfieWow"
   }, {
-    "memberId" : "9ed19f71-c274-4649-83b7-cafd7ed88113",
+    "memberId" : "56e4544f-bf56-48ed-a8ab-ea1811526d69",
     "nickname" : "제니",
     "profileImage" : "http://hojiniSelfieAwesome"
   } ]
 }, {
-  "groupId" : "81c26cc2-c114-40c6-a162-d304a70330dd",
-  "leaderId" : "a83066da-91a4-4e80-803e-50010c427c9f",
+  "groupId" : "69cd4f02-45a2-4bc8-9c3d-2d886ae03497",
+  "leaderId" : "037e07df-1c6f-4fb5-989e-86d8dc168478",
   "name" : "LE_SSERAFIM",
   "groupImage" : "I_LOVE_YOU_채원",
   "groupMembers" : [ {
-    "memberId" : "f3af5f3b-313f-4483-973f-ac7c4015b8da",
+    "memberId" : "13fabdf7-c838-40d0-b233-b874fe219e62",
     "nickname" : "카즈하",
     "profileImage" : "http://hojiniSelfieGreat"
   }, {
-    "memberId" : "af93b7d1-2c0f-4aaa-9863-43cf779d1a4e",
+    "memberId" : "136d7450-f52b-4e56-a02a-0ff8da92f20c",
     "nickname" : "사쿠라",
     "profileImage" : "http://hojiniSelfieGoat"
   } ]
@@ -2134,7 +2167,7 @@ Content-Length: 97
 Host: localhost:8080
 
 {
-  "groupId" : "5cffaeb3-49fe-424e-a12f-a20a7d84e247",
+  "groupId" : "6c0b7380-a842-4ab8-ac83-8d537dad6961",
   "longitude" : 0.0,
   "latitude" : 0.0
 }</code></pre>
@@ -2163,7 +2196,7 @@ Content-Length: 56
 Host: localhost:8080
 
 {
-  "groupId" : "818b7848-ac8d-47f5-b777-ee7310f2c57d"
+  "groupId" : "ecf117ce-39e1-4742-8646-d41474c008ab"
 }</code></pre>
 </div>
 </div>
